@@ -3,1142 +3,1074 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TradingAcademy Pro — Apprends le Trading de A à Z</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <title>TradingAcademy Pro - Formation Trading Complète</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ========= SIDEBAR ========= -->
+<button class="hamburger" id="hamburgerBtn">☰</button>
+
 <nav class="sidebar" id="sidebar">
   <div class="sidebar-logo">
-    <div class="logo-icon">📈</div>
-    <span>TradingPro</span>
+    <span class="logo-icon">📈</span>
+    TradingAcademy Pro
   </div>
   <div class="sidebar-progress">
     <div class="progress-label">Progression globale</div>
     <div class="progress-bar-outer">
-      <div class="progress-bar-inner" id="global-progress" style="width:0%"></div>
+      <div class="progress-bar-inner" id="overallFill" style="width:0%"></div>
     </div>
-    <span class="progress-pct" id="global-pct">0%</span>
+    <span class="progress-pct" id="overallPct">0%</span>
   </div>
-  <ul class="nav-modules">
-    <li class="nav-item active" onclick="goTo('hero')">
-      <span class="nav-icon">🏠</span><span>Accueil</span>
+  <ul class="nav-modules" id="navModules">
+    <li class="nav-item active" onclick="showModule(1)" id="nav-1">
+      <span class="nav-icon">📈</span> 1. Bases du Trading
+      <span class="nav-dot" id="dot-1"></span>
     </li>
-    <li class="nav-item" onclick="goTo('module1')">
-      <span class="nav-icon">📚</span><span>Les Bases</span>
-      <div class="nav-dot" id="dot1"></div>
+    <li class="nav-item" onclick="showModule(2)" id="nav-2">
+      <span class="nav-icon">⚡</span> 2. Types de Trading
+      <span class="nav-dot" id="dot-2"></span>
     </li>
-    <li class="nav-item" onclick="goTo('module2')">
-      <span class="nav-icon">⚡</span><span>Types de Trading</span>
-      <div class="nav-dot" id="dot2"></div>
+    <li class="nav-item" onclick="showModule(3)" id="nav-3">
+      <span class="nav-icon">📊</span> 3. Analyse Technique
+      <span class="nav-dot" id="dot-3"></span>
     </li>
-    <li class="nav-item" onclick="goTo('module3')">
-      <span class="nav-icon">📊</span><span>Analyse Technique</span>
-      <div class="nav-dot" id="dot3"></div>
+    <li class="nav-item" onclick="showModule(4)" id="nav-4">
+      <span class="nav-icon">🔍</span> 4. Analyse Fondamentale
+      <span class="nav-dot" id="dot-4"></span>
     </li>
-    <li class="nav-item" onclick="goTo('module4')">
-      <span class="nav-icon">🔍</span><span>Analyse Fondamentale</span>
-      <div class="nav-dot" id="dot4"></div>
+    <li class="nav-item" onclick="showModule(5)" id="nav-5">
+      <span class="nav-icon">🛡️</span> 5. Gestion du Risque
+      <span class="nav-dot" id="dot-5"></span>
     </li>
-    <li class="nav-item" onclick="goTo('module5')">
-      <span class="nav-icon">🛡️</span><span>Gestion du Risque</span>
-      <div class="nav-dot" id="dot5"></div>
+    <li class="nav-item" onclick="showModule(6)" id="nav-6">
+      <span class="nav-icon">🧠</span> 6. Psychologie
+      <span class="nav-dot" id="dot-6"></span>
     </li>
-    <li class="nav-item" onclick="goTo('module6')">
-      <span class="nav-icon">🧠</span><span>Psychologie</span>
-      <div class="nav-dot" id="dot6"></div>
+    <li class="nav-item" onclick="showModule(7)" id="nav-7">
+      <span class="nav-icon">🤖</span> 7. Bots de Trading
+      <span class="nav-dot" id="dot-7"></span>
     </li>
-    <li class="nav-item" onclick="goTo('module7')">
-      <span class="nav-icon">🤖</span><span>Bots de Trading</span>
-      <div class="nav-dot" id="dot7"></div>
-    </li>
-    <li class="nav-item" onclick="goTo('module8')">
-      <span class="nav-icon">📖</span><span>Glossaire</span>
-      <div class="nav-dot" id="dot8"></div>
+    <li class="nav-item" onclick="showModule(8)" id="nav-8">
+      <span class="nav-icon">📖</span> 8. Glossaire
+      <span class="nav-dot" id="dot-8"></span>
     </li>
   </ul>
   <div class="sidebar-footer">
-    <div class="trophy" id="trophy" style="display:none">🏆 Expert Complété!</div>
+    <div class="trophy" id="trophyText">🏆 0 / 8 modules</div>
   </div>
 </nav>
 
-<!-- ========= HAMBURGER ========= -->
-<button class="hamburger" id="hamburger" onclick="toggleSidebar()">☰</button>
+<main class="main-content">
 
-<!-- ========= MAIN ========= -->
-<main class="main-content" id="main">
+  <!-- ======================================================
+       MODULE 1 - Bases du Trading
+  ====================================================== -->
+  <section class="section module-section active" id="module-1">
+    <div class="section-header">
+      <div class="section-badge">Module 1</div>
+      <h1 class="section-title">Les Bases du Trading</h1>
+      <p class="section-subtitle">Découvrez les fondements essentiels : définitions, types de marchés, acteurs et ordres de bourse.</p>
+    </div>
 
-  <!-- ====== HERO ====== -->
-  <section id="hero" class="section hero-section">
-    <div class="hero-bg-grid"></div>
-    <div class="hero-particles" id="particles"></div>
-    <div class="hero-content">
-      <div class="hero-badge animate-fade-in">🚀 Formation Complète</div>
-      <h1 class="hero-title animate-slide-up">
-        Apprends le<br>
-        <span class="gradient-text">Trading</span><br>
-        de A à Z
-      </h1>
-      <p class="hero-subtitle animate-fade-in-delay">8 modules · Schémas visuels · Bots inclus</p>
-      <div class="hero-stats animate-fade-in-delay2">
-        <div class="stat-bubble">
-          <div class="stat-num" data-count="8">0</div>
-          <div class="stat-label">Modules</div>
-        </div>
-        <div class="stat-bubble">
-          <div class="stat-num" data-count="50">0</div>
-          <div class="stat-label">Schémas</div>
-        </div>
-        <div class="stat-bubble">
-          <div class="stat-num" data-count="40">0</div>
-          <div class="stat-label">Quiz</div>
-        </div>
+    <div class="box box-info">
+      <div class="box-icon">ℹ️</div>
+      <div><strong>Introduction :</strong> Ce module pose les bases indispensables avant de commencer à trader. Une bonne compréhension de ces concepts vous évitera de nombreuses erreurs de débutant.</div>
+    </div>
+
+    <h2 class="content-h2">🎯 Qu'est-ce que le Trading ?</h2>
+    <div class="card">
+      <div class="card-icon-wrap">💡</div>
+      <h3 class="card-title">Définition</h3>
+      <p>Le <strong>trading</strong> désigne l'achat et la vente d'instruments financiers (actions, devises, cryptomonnaies, matières premières, etc.) dans le but de réaliser un profit. Le trader cherche à acheter un actif à bas prix pour le revendre plus cher (<em>position longue</em>), ou à vendre un actif qu'il ne possède pas pour le racheter moins cher (<em>short</em>).</p>
+      <p>Le trading se distingue de l'investissement classique par sa <strong>fréquence</strong> et son <strong>horizon temporel</strong> : là où un investisseur conserve un titre pendant des années, un trader peut ouvrir et fermer des dizaines de positions en une seule journée.</p>
+      <div class="box box-tip" style="margin-top:16px">
+        <div class="box-icon">✅</div>
+        <div>Le trading n'est pas un jeu de hasard. C'est une discipline qui demande de la rigueur, de l'analyse et une gestion stricte du risque.</div>
       </div>
-      <button class="cta-btn animate-fade-in-delay3" onclick="goTo('module1')">
-        Commencer maintenant <span>→</span>
-      </button>
     </div>
-    <!-- Animated Chart SVG -->
-    <div class="hero-chart animate-chart">
-      <svg class="chart-svg" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#10b981" stop-opacity="0.4"/>
-            <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
-          </linearGradient>
-        </defs>
-        <!-- Grid lines -->
-        <line x1="0" y1="60" x2="600" y2="60" stroke="#1e293b" stroke-width="1"/>
-        <line x1="0" y1="120" x2="600" y2="120" stroke="#1e293b" stroke-width="1"/>
-        <line x1="0" y1="180" x2="600" y2="180" stroke="#1e293b" stroke-width="1"/>
-        <line x1="0" y1="240" x2="600" y2="240" stroke="#1e293b" stroke-width="1"/>
-        <!-- Area fill -->
-        <path class="chart-area" d="M0,200 L60,180 L120,160 L180,170 L240,130 L300,100 L360,120 L420,80 L480,60 L540,40 L600,50 L600,300 L0,300 Z" fill="url(#chartGrad)"/>
-        <!-- Line -->
-        <path class="chart-line" d="M0,200 L60,180 L120,160 L180,170 L240,130 L300,100 L360,120 L420,80 L480,60 L540,40 L600,50" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
-        <!-- Animated dot -->
-        <circle class="chart-dot" cx="600" cy="50" r="6" fill="#10b981"/>
-        <circle cx="600" cy="50" r="14" fill="#10b981" fill-opacity="0.2" class="chart-pulse"/>
-        <!-- Candles -->
-        <g class="candles">
-          <rect x="30" y="185" width="12" height="20" rx="2" fill="#ef4444"/>
-          <line x1="36" y1="180" x2="36" y2="210" stroke="#ef4444" stroke-width="1.5"/>
-          <rect x="70" y="170" width="12" height="18" rx="2" fill="#10b981"/>
-          <line x1="76" y1="165" x2="76" y2="195" stroke="#10b981" stroke-width="1.5"/>
-          <rect x="110" y="162" width="12" height="12" rx="2" fill="#10b981"/>
-          <line x1="116" y1="155" x2="116" y2="180" stroke="#10b981" stroke-width="1.5"/>
-          <rect x="150" y="168" width="12" height="15" rx="2" fill="#ef4444"/>
-          <line x1="156" y1="163" x2="156" y2="190" stroke="#ef4444" stroke-width="1.5"/>
-          <rect x="190" y="133" width="12" height="14" rx="2" fill="#10b981"/>
-          <line x1="196" y1="128" x2="196" y2="152" stroke="#10b981" stroke-width="1.5"/>
-          <rect x="230" y="102" width="12" height="12" rx="2" fill="#10b981"/>
-          <line x1="236" y1="96" x2="236" y2="120" stroke="#10b981" stroke-width="1.5"/>
-        </g>
-      </svg>
+
+    <h2 class="content-h2">🌍 Les Types de Marchés Financiers</h2>
+    <div class="cards-grid">
+      <div class="card card-sm">
+        <div style="font-size:36px;margin-bottom:10px">🏛️</div>
+        <h3 class="card-title">La Bourse (Actions)</h3>
+        <p>Marché où s'échangent des parts d'entreprises cotées. Ex : CAC 40, S&amp;P 500, Nasdaq. Heures d'ouverture définies.</p>
+      </div>
+      <div class="card card-sm">
+        <div style="font-size:36px;margin-bottom:10px">💱</div>
+        <h3 class="card-title">Forex (Changes)</h3>
+        <p>Plus grand marché mondial (~6 500 Mds $/jour). Échange de paires de devises : EUR/USD, GBP/JPY… Ouvert 24h/24, 5j/7.</p>
+      </div>
+      <div class="card card-sm">
+        <div style="font-size:36px;margin-bottom:10px">₿</div>
+        <h3 class="card-title">Crypto-monnaies</h3>
+        <p>Actifs numériques décentralisés (Bitcoin, Ethereum…). Ouvert 24h/24, 7j/7. Très volatil — opportunités ET risques élevés.</p>
+      </div>
+      <div class="card card-sm">
+        <div style="font-size:36px;margin-bottom:10px">🛢️</div>
+        <h3 class="card-title">Matières Premières</h3>
+        <p>Or, pétrole, blé, gaz… Tradées via contrats futures ou CFD. Influencées par l'offre/demande mondiale et la géopolitique.</p>
+      </div>
     </div>
-    <!-- Scroll indicator -->
-    <div class="scroll-hint" onclick="goTo('module1')">
-      <div class="scroll-arrow">⬇</div>
-      <span>Commencer</span>
+
+    <h2 class="content-h2">👥 Les Acteurs du Marché</h2>
+    <div class="card">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Acteur</th><th>Rôle</th><th>Exemples</th><th>Influence</th></tr></thead>
+          <tbody>
+            <tr><td>Courtiers (Brokers)</td><td>Intermédiaire entre le trader et le marché</td><td>eToro, Degiro, IB</td><td><span class="badge badge-yellow">Moyenne</span></td></tr>
+            <tr><td>Market Makers</td><td>Fournissent la liquidité via bid/ask</td><td>Goldman Sachs, Citadel</td><td><span class="badge badge-red">Élevée</span></td></tr>
+            <tr><td>Traders Institutionnels</td><td>Gèrent d'importants capitaux</td><td>Hedge funds, fonds de pension</td><td><span class="badge badge-red">Très élevée</span></td></tr>
+            <tr><td>Banques Centrales</td><td>Définissent la politique monétaire</td><td>Fed, BCE, BOJ</td><td><span class="badge badge-red">Majeure</span></td></tr>
+            <tr><td>Traders Particuliers</td><td>Individuels tradant pour leur compte</td><td>Vous et moi !</td><td><span class="badge badge-green">Faible</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box box-warning" style="margin-top:16px">
+        <div class="box-icon">⚠️</div>
+        <div>Les institutionnels ont des avantages considérables. Votre avantage en tant que particulier : votre <strong>flexibilité</strong> et votre capacité à attendre les meilleures opportunités sans contrainte de reporting.</div>
+      </div>
+    </div>
+
+    <h2 class="content-h2">📋 Les Types d'Ordres</h2>
+    <div class="cards-grid">
+      <div class="card card-sm">
+        <div style="font-size:36px;margin-bottom:10px">⚡</div>
+        <h3 class="card-title">Ordre Market</h3>
+        <p>Exécuté <strong>immédiatement au prix du marché</strong>. Garantit l'exécution mais pas le prix exact. À utiliser quand la rapidité prime.</p>
+      </div>
+      <div class="card card-sm">
+        <div style="font-size:36px;margin-bottom:10px">🎯</div>
+        <h3 class="card-title">Ordre Limit</h3>
+        <p>Exécuté <strong>au prix spécifié ou meilleur</strong>. Maîtrise totale du prix d'entrée mais pas garanti d'être rempli.</p>
+      </div>
+      <div class="card card-sm">
+        <div style="font-size:36px;margin-bottom:10px">🛑</div>
+        <h3 class="card-title">Ordre Stop</h3>
+        <p><strong>Se déclenche quand le prix atteint un niveau</strong> cible, puis devient un ordre market. Idéal pour les stop-loss et les entrées sur cassure.</p>
+      </div>
+      <div class="card card-sm">
+        <div style="font-size:36px;margin-bottom:10px">🔄</div>
+        <h3 class="card-title">Stop-Limit</h3>
+        <p>Combinaison : déclenche à un niveau stop puis place un ordre limit. <strong>Contrôle maximal</strong> du prix, risque de non-exécution.</p>
+      </div>
+    </div>
+    <div class="box box-tip">
+      <div class="box-icon">💡</div>
+      <div>Pour débuter, utilisez les ordres <strong>Limit</strong> pour contrôler votre prix d'entrée. Placez toujours un <strong>Stop-Loss</strong> dès que vous entrez en position — c'est votre filet de sécurité indispensable.</div>
+    </div>
+
+    <div class="quiz-section">
+      <div class="quiz-header-row">
+        <span class="quiz-badge">🎓 Quiz</span>
+        <h3>Module 1 — Testez vos connaissances</h3>
+      </div>
+      <button class="btn-quiz-start" onclick="startQuiz(1)">🚀 Commencer le Quiz</button>
+      <div id="quiz-container-1"></div>
     </div>
   </section>
 
-  <!-- ====== MODULE 1 — LES BASES ====== -->
-  <section id="module1" class="section">
-    <div class="module-header">
-      <div class="module-badge">MODULE 01</div>
-      <h2 class="module-title">📚 Les Bases du Trading</h2>
+  <!-- ======================================================
+       MODULE 2 - Types de Trading
+  ====================================================== -->
+  <section class="section module-section" id="module-2">
+    <div class="section-header">
+      <div class="section-badge">Module 2</div>
+      <h1 class="section-title">Les Types de Trading</h1>
+      <p class="section-subtitle">Scalping, day trading, swing trading, position trading — trouvez le style qui vous correspond.</p>
     </div>
 
-    <!-- Qu'est-ce que le trading -->
-    <div class="visual-block reveal">
-      <h3 class="block-title">💡 Qu'est-ce que le Trading ?</h3>
-      <div class="infographic-center">
-        <div class="big-icon-card glow-blue">
-          <div class="big-icon">💱</div>
-          <div class="card-label">Acheter bas</div>
-          <div class="card-arrow">→</div>
-          <div class="big-icon">📈</div>
-          <div class="card-label">Vendre haut</div>
-          <div class="card-equal">=</div>
-          <div class="big-icon profit-icon">💰</div>
-          <div class="card-label green">Profit</div>
-        </div>
+    <div class="box box-info">
+      <div class="box-icon">ℹ️</div>
+      <div>Il n'existe pas de style "meilleur" que les autres. Le bon style dépend de votre personnalité, de votre temps disponible, de votre capital et de votre tolérance au risque.</div>
+    </div>
+
+    <h2 class="content-h2">📊 Comparatif des Styles de Trading</h2>
+    <div class="card">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Style</th><th>Durée</th><th>Timeframe</th><th>Capital min.</th><th>Risque</th><th>Convient à</th></tr></thead>
+          <tbody>
+            <tr><td>🔥 Scalping</td><td>Secondes – minutes</td><td>M1 – M5</td><td>5 000 €+</td><td><span class="badge badge-red">Très élevé</span></td><td>Experts</td></tr>
+            <tr><td>⚡ Day Trading</td><td>Quelques heures</td><td>M15 – H1</td><td>10 000 €+</td><td><span class="badge badge-orange">Élevé</span></td><td>Intermédiaires</td></tr>
+            <tr><td>🌊 Swing Trading</td><td>Jours – semaines</td><td>H4 – D1</td><td>2 000 €+</td><td><span class="badge badge-yellow">Modéré</span></td><td>Débutants–Intermédiaires</td></tr>
+            <tr><td>🏔️ Position Trading</td><td>Mois – années</td><td>W1 – MN</td><td>5 000 €+</td><td><span class="badge badge-green">Faible</span></td><td>Investisseurs long terme</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
-    <!-- Les 4 marchés -->
-    <div class="visual-block reveal">
-      <h3 class="block-title">🌍 Les 4 Grands Marchés</h3>
-      <div class="markets-grid">
-        <div class="market-card animate-card" onclick="expandCard(this)">
-          <div class="market-icon">🏛️</div>
-          <div class="market-name">Bourse</div>
-          <div class="market-tag">Actions</div>
-          <div class="market-detail hidden">Apple · Tesla · LVMH<br>Lundi–Vendredi<br>9h–17h30</div>
-        </div>
-        <div class="market-card animate-card" onclick="expandCard(this)">
-          <div class="market-icon">💱</div>
-          <div class="market-name">Forex</div>
-          <div class="market-tag">Devises</div>
-          <div class="market-detail hidden">EUR/USD · GBP/JPY<br>24h/24 · 5j/7<br>+6 000 Mds$/jour</div>
-        </div>
-        <div class="market-card animate-card" onclick="expandCard(this)">
-          <div class="market-icon">₿</div>
-          <div class="market-name">Crypto</div>
-          <div class="market-tag">Cryptomonnaies</div>
-          <div class="market-detail hidden">Bitcoin · Ethereum<br>24h/24 · 7j/7<br>Très volatile</div>
-        </div>
-        <div class="market-card animate-card" onclick="expandCard(this)">
-          <div class="market-icon">🛢️</div>
-          <div class="market-name">Matières 1ères</div>
-          <div class="market-tag">Commodities</div>
-          <div class="market-detail hidden">Or · Pétrole · Blé<br>Sensible à l'actualité<br>Diversification</div>
-        </div>
-      </div>
-      <p class="tap-hint">👆 Clique pour en savoir plus</p>
-    </div>
-
-    <!-- Types d'ordres -->
-    <div class="visual-block reveal">
-      <h3 class="block-title">📋 Les 3 Types d'Ordres</h3>
-      <div class="orders-flow">
-        <div class="order-card market-order">
-          <div class="order-icon">⚡</div>
-          <div class="order-name">MARKET</div>
-          <div class="order-desc">Exécution immédiate au prix actuel</div>
-          <div class="order-badge fast">RAPIDE</div>
-        </div>
-        <div class="flow-arrow">→</div>
-        <div class="order-card limit-order">
-          <div class="order-icon">🎯</div>
-          <div class="order-name">LIMIT</div>
-          <div class="order-desc">Exécuté au prix que tu choisis</div>
-          <div class="order-badge precise">PRÉCIS</div>
-        </div>
-        <div class="flow-arrow">→</div>
-        <div class="order-card stop-order">
-          <div class="order-icon">🛑</div>
-          <div class="order-name">STOP</div>
-          <div class="order-desc">Déclenché quand le prix atteint un seuil</div>
-          <div class="order-badge protect">PROTECTION</div>
-        </div>
+    <h2 class="content-h2">🔥 Scalping</h2>
+    <div class="card">
+      <p>Le scalping consiste à réaliser <strong>un très grand nombre de petits trades</strong> sur des durées très courtes (secondes à quelques minutes) pour accumuler de nombreux petits profits.</p>
+      <ul>
+        <li><strong>Avantage :</strong> Peu exposé aux risques overnight</li>
+        <li><strong>Inconvénient :</strong> Très stressant, nécessite une connexion ultra-rapide et un spread très faible</li>
+        <li><strong>Marchés favoris :</strong> Forex (EUR/USD), futures d'indices, crypto</li>
+        <li><strong>Outils :</strong> Flux de prix en temps réel, plateforme ultra-rapide (cTrader, NinjaTrader)</li>
+      </ul>
+      <div class="box box-danger" style="margin-top:16px">
+        <div class="box-icon">⛔</div>
+        <div>Le scalping est <strong>déconseillé aux débutants</strong>. La vitesse de décision requise, combinée aux frais et au stress, conduit à des erreurs fréquentes. Commencez par le swing trading.</div>
       </div>
     </div>
 
-    <!-- Quiz Module 1 -->
-    <div class="quiz-block reveal" id="quiz1">
-      <div class="quiz-header">🎯 Quiz — Module 1</div>
-      <div class="quiz-questions" id="q1"></div>
+    <h2 class="content-h2">⚡ Day Trading</h2>
+    <div class="card">
+      <p>Le day trader ouvre et ferme toutes ses positions <strong>dans la même journée</strong>, ne gardant aucune position overnight. Il profite des fluctuations intraday.</p>
+      <ul>
+        <li><strong>Avantage :</strong> Pas de risque gap overnight, résultats visibles rapidement</li>
+        <li><strong>Inconvénient :</strong> Demande une présence constante devant les écrans</li>
+        <li><strong>Capital (USA) :</strong> La règle PDT exige 25 000 $ minimum</li>
+        <li><strong>Meilleures plages :</strong> Ouverture de marché (9h30–11h NYSE, 9h–11h Euronext)</li>
+      </ul>
+    </div>
+
+    <h2 class="content-h2">🌊 Swing Trading</h2>
+    <div class="card">
+      <p>Le swing trading capture des <strong>mouvements de prix sur plusieurs jours ou semaines</strong>. C'est le style le plus adapté aux traders particuliers avec un emploi.</p>
+      <ul>
+        <li><strong>Avantage :</strong> Compatible avec une activité professionnelle, moins stressant</li>
+        <li><strong>Inconvénient :</strong> Exposition aux risques overnight et weekend</li>
+        <li><strong>Analyse :</strong> Combinaison technique (H4, Daily) et fondamentale</li>
+        <li><strong>Profit cible :</strong> 3% à 15% selon l'actif</li>
+      </ul>
+      <div class="box box-tip" style="margin-top:16px">
+        <div class="box-icon">✅</div>
+        <div>Le swing trading est <strong>idéal pour débuter</strong> : vous avez le temps d'analyser, d'entrer vos ordres calmement et de gérer vos positions sans stress permanent.</div>
+      </div>
+    </div>
+
+    <h2 class="content-h2">🏔️ Position Trading</h2>
+    <div class="card">
+      <p>Le position trader adopte une approche à <strong>très long terme</strong>, conservant ses positions pendant des mois ou des années. Cette approche est proche de l'investissement traditionnel.</p>
+      <ul>
+        <li><strong>Avantage :</strong> Peu de temps requis, frais réduits, tendances lourdes plus prévisibles</li>
+        <li><strong>Inconvénient :</strong> Capital immobilisé longtemps, patience requise</li>
+        <li><strong>Analyse principale :</strong> Fondamentale (macro-économie, secteur, résultats)</li>
+        <li><strong>Exemple :</strong> Acheter Apple en 2015, revendre en 2020 après +300%</li>
+      </ul>
+    </div>
+
+    <div class="quiz-section">
+      <div class="quiz-header-row">
+        <span class="quiz-badge">🎓 Quiz</span>
+        <h3>Module 2 — Testez vos connaissances</h3>
+      </div>
+      <button class="btn-quiz-start" onclick="startQuiz(2)">🚀 Commencer le Quiz</button>
+      <div id="quiz-container-2"></div>
     </div>
   </section>
 
-  <!-- ====== MODULE 2 — TYPES DE TRADING ====== -->
-  <section id="module2" class="section">
-    <div class="module-header">
-      <div class="module-badge">MODULE 02</div>
-      <h2 class="module-title">⚡ Types de Trading</h2>
+  <!-- ======================================================
+       MODULE 3 - Analyse Technique
+  ====================================================== -->
+  <section class="section module-section" id="module-3">
+    <div class="section-header">
+      <div class="section-badge">Module 3</div>
+      <h1 class="section-title">Analyse Technique</h1>
+      <p class="section-subtitle">Maîtrisez les graphiques, chandeliers japonais, supports/résistances et indicateurs techniques.</p>
     </div>
 
-    <!-- Timeline visuelle -->
-    <div class="visual-block reveal">
-      <h3 class="block-title">⏱️ La Durée : tout change !</h3>
-      <div class="timeline-visual">
-        <div class="timeline-bar">
-          <div class="tl-segment scalp" style="width:10%">
-            <span>Scalping</span>
+    <h2 class="content-h2">🕯️ Les Chandeliers Japonais</h2>
+    <div class="card">
+      <p>Inventés au XVIIIe siècle par le trader japonais Homma Munehisa, les chandeliers représentent visuellement les mouvements de prix. Chaque bougie indique : <strong>ouverture, clôture, plus haut et plus bas</strong> sur une période.</p>
+      <p>Bougie <strong>verte</strong> = hausse (clôture &gt; ouverture). Bougie <strong>rouge</strong> = baisse (clôture &lt; ouverture).</p>
+      <div class="candles-row">
+        <div class="candle-card">
+          <div class="candle-visual">
+            <div class="wick" style="height:20px"></div>
+            <div class="candle-body neutral" style="height:4px;width:18px"></div>
+            <div class="wick" style="height:20px"></div>
           </div>
-          <div class="tl-segment day" style="width:20%">
-            <span>Day</span>
-          </div>
-          <div class="tl-segment swing" style="width:30%">
-            <span>Swing</span>
-          </div>
-          <div class="tl-segment position" style="width:40%">
-            <span>Position</span>
-          </div>
+          <div class="candle-label">Doji</div>
+          <div class="candle-desc">Indécision du marché — ouverture ≈ clôture</div>
         </div>
-        <div class="timeline-labels">
-          <span>Secondes</span>
-          <span>Heures</span>
-          <span>Jours</span>
-          <span>Mois+</span>
+        <div class="candle-card">
+          <div class="candle-visual">
+            <div class="wick" style="height:6px"></div>
+            <div class="candle-body bullish" style="height:18px;width:18px"></div>
+            <div class="wick" style="height:30px"></div>
+          </div>
+          <div class="candle-label">Marteau</div>
+          <div class="candle-desc">Mèche longue en bas — signal haussier</div>
+        </div>
+        <div class="candle-card">
+          <div class="candle-visual">
+            <div class="wick" style="height:30px"></div>
+            <div class="candle-body bearish" style="height:18px;width:18px"></div>
+            <div class="wick" style="height:6px"></div>
+          </div>
+          <div class="candle-label">Étoile Filante</div>
+          <div class="candle-desc">Mèche longue en haut — signal baissier</div>
+        </div>
+        <div class="candle-card">
+          <div class="candle-visual" style="flex-direction:row;gap:4px;align-items:flex-end">
+            <div style="display:flex;flex-direction:column;align-items:center">
+              <div class="wick" style="height:4px"></div>
+              <div class="candle-body bearish" style="height:20px;width:16px"></div>
+              <div class="wick" style="height:4px"></div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center">
+              <div class="wick" style="height:4px"></div>
+              <div class="candle-body bullish" style="height:34px;width:16px"></div>
+              <div class="wick" style="height:4px"></div>
+            </div>
+          </div>
+          <div class="candle-label">Englobant Haussier</div>
+          <div class="candle-desc">Grande verte englobe rouge — retournement haussier</div>
         </div>
       </div>
     </div>
 
-    <!-- 4 Trading cards -->
-    <div class="visual-block reveal">
-      <div class="trading-types-grid">
-
-        <div class="type-card scalping-card">
-          <div class="type-glow"></div>
-          <div class="type-emoji">⚡</div>
-          <div class="type-name">SCALPING</div>
-          <div class="type-metrics">
-            <div class="metric"><span class="m-label">⏱ Durée</span><span class="m-val">sec → min</span></div>
-            <div class="metric"><span class="m-label">📊 Trades/j</span><span class="m-val">10–100+</span></div>
-            <div class="metric"><span class="m-label">😰 Stress</span><span class="stress-bar s5">●●●●●</span></div>
-            <div class="metric"><span class="m-label">💰 Capital</span><span class="m-val">Faible</span></div>
-          </div>
-          <div class="type-verdict red">Expert requis</div>
-        </div>
-
-        <div class="type-card day-card">
-          <div class="type-glow"></div>
-          <div class="type-emoji">🌅</div>
-          <div class="type-name">DAY TRADING</div>
-          <div class="type-metrics">
-            <div class="metric"><span class="m-label">⏱ Durée</span><span class="m-val">minutes → heures</span></div>
-            <div class="metric"><span class="m-label">📊 Trades/j</span><span class="m-val">2–10</span></div>
-            <div class="metric"><span class="m-label">😰 Stress</span><span class="stress-bar s4">●●●●○</span></div>
-            <div class="metric"><span class="m-label">💰 Capital</span><span class="m-val">Moyen</span></div>
-          </div>
-          <div class="type-verdict orange">Intermédiaire</div>
-        </div>
-
-        <div class="type-card swing-card">
-          <div class="type-glow"></div>
-          <div class="type-emoji">🌊</div>
-          <div class="type-name">SWING TRADING</div>
-          <div class="type-metrics">
-            <div class="metric"><span class="m-label">⏱ Durée</span><span class="m-val">jours → semaines</span></div>
-            <div class="metric"><span class="m-label">📊 Trades/j</span><span class="m-val">1–5/sem</span></div>
-            <div class="metric"><span class="m-label">😰 Stress</span><span class="stress-bar s2">●●○○○</span></div>
-            <div class="metric"><span class="m-label">💰 Capital</span><span class="m-val">Moyen</span></div>
-          </div>
-          <div class="type-verdict green">Idéal débutant</div>
-        </div>
-
-        <div class="type-card position-card">
-          <div class="type-glow"></div>
-          <div class="type-emoji">🏔️</div>
-          <div class="type-name">POSITION TRADING</div>
-          <div class="type-metrics">
-            <div class="metric"><span class="m-label">⏱ Durée</span><span class="m-val">mois → années</span></div>
-            <div class="metric"><span class="m-label">📊 Trades/j</span><span class="m-val">1–2/mois</span></div>
-            <div class="metric"><span class="m-label">😰 Stress</span><span class="stress-bar s1">●○○○○</span></div>
-            <div class="metric"><span class="m-label">💰 Capital</span><span class="m-val">Important</span></div>
-          </div>
-          <div class="type-verdict blue">Long terme</div>
-        </div>
+    <h2 class="content-h2">📏 Supports et Résistances</h2>
+    <div class="card">
+      <p>Le <strong>support</strong> est un niveau où la demande est forte et stoppe les baisses. La <strong>résistance</strong> est un niveau où l'offre est forte et bloque les hausses.</p>
+      <ul>
+        <li>Prix casse un support → nouveau signal baissier</li>
+        <li>Prix casse une résistance → nouveau signal haussier</li>
+        <li>Un support cassé devient souvent une <strong>résistance</strong> (et vice-versa)</li>
+        <li>Plus un niveau est testé souvent, plus il est <strong>significatif</strong></li>
+      </ul>
+      <div class="box box-tip" style="margin-top:16px">
+        <div class="box-icon">💡</div>
+        <div>Stratégie de base : achetez près d'un support avec stop-loss juste en dessous. Prenez profit près d'une résistance. Simple et efficace.</div>
       </div>
     </div>
 
-    <!-- Quiz Module 2 -->
-    <div class="quiz-block reveal" id="quiz2">
-      <div class="quiz-header">🎯 Quiz — Module 2</div>
-      <div class="quiz-questions" id="q2"></div>
+    <h2 class="content-h2">📉 Les Tendances</h2>
+    <div class="cards-grid">
+      <div class="card card-sm" style="border-color:rgba(16,185,129,0.3)">
+        <div style="font-size:32px;margin-bottom:8px;color:#10b981">📈</div>
+        <h3 class="card-title">Tendance Haussière</h3>
+        <p>Série de plus hauts et plus bas <strong>croissants</strong>. Stratégie : acheter sur les retracements. "The trend is your friend."</p>
+      </div>
+      <div class="card card-sm" style="border-color:rgba(239,68,68,0.3)">
+        <div style="font-size:32px;margin-bottom:8px;color:#ef4444">📉</div>
+        <h3 class="card-title">Tendance Baissière</h3>
+        <p>Série de plus hauts et plus bas <strong>décroissants</strong>. Stratégie : shorter sur les rebonds. Évitez d'acheter à contre-tendance.</p>
+      </div>
+      <div class="card card-sm" style="border-color:rgba(245,158,11,0.3)">
+        <div style="font-size:32px;margin-bottom:8px;color:#f59e0b">➡️</div>
+        <h3 class="card-title">Tendance Latérale (Range)</h3>
+        <p>Prix oscille entre support et résistance. Stratégie : acheter sur support, vendre sur résistance.</p>
+      </div>
+    </div>
+
+    <h2 class="content-h2">📐 Les Indicateurs Techniques</h2>
+
+    <div class="card">
+      <h3 class="card-title">RSI — Relative Strength Index</h3>
+      <p>Oscillateur de momentum entre 0 et 100 mesurant la vitesse et l'amplitude des mouvements de prix.</p>
+      <div class="rsi-bar">
+        <div class="rsi-zone rsi-oversold">RSI &lt;30<br>Survendu</div>
+        <div class="rsi-zone rsi-neutral">RSI 30–70<br>Neutre</div>
+        <div class="rsi-zone rsi-overbought">RSI &gt;70<br>Suracheté</div>
+      </div>
+      <ul style="margin-top:12px">
+        <li><strong>RSI &gt; 70 :</strong> Zone de surachat → possible retournement baissier</li>
+        <li><strong>RSI &lt; 30 :</strong> Zone de survente → possible rebond haussier</li>
+        <li><strong>Divergence RSI :</strong> Signal puissant — le prix monte mais le RSI baisse (divergence baissière)</li>
+        <li><strong>Période standard :</strong> 14 périodes (ajustable)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3 class="card-title">MACD — Moving Average Convergence Divergence</h3>
+      <p>Mesure la <strong>convergence/divergence de deux EMA</strong> (12 et 26 périodes par défaut).</p>
+      <ul>
+        <li><strong>Ligne MACD :</strong> EMA12 − EMA26</li>
+        <li><strong>Ligne Signal :</strong> EMA9 de la ligne MACD</li>
+        <li><strong>Histogramme :</strong> Différence MACD − Signal</li>
+        <li><strong>Signal d'achat :</strong> MACD croise Signal vers le haut</li>
+        <li><strong>Signal de vente :</strong> MACD croise Signal vers le bas</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3 class="card-title">Moyennes Mobiles (MM)</h3>
+      <ul>
+        <li><strong>MM20 :</strong> Court terme — tendance récente</li>
+        <li><strong>MM50 :</strong> Moyen terme — ligne de tendance principale</li>
+        <li><strong>MM200 :</strong> Long terme — frontière bull/bear market</li>
+        <li><strong>Golden Cross :</strong> MM50 croise MM200 vers le haut → signal haussier majeur</li>
+        <li><strong>Death Cross :</strong> MM50 croise MM200 vers le bas → signal baissier majeur</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3 class="card-title">Bandes de Bollinger</h3>
+      <p>Trois lignes entourant le prix : MM20 (centrale) ± 2 écarts-types.</p>
+      <ul>
+        <li>Prix touche la bande supérieure → possible surachat</li>
+        <li>Prix touche la bande inférieure → possible survente</li>
+        <li><strong>Squeeze :</strong> Bandes très proches → explosion de volatilité imminente</li>
+      </ul>
+    </div>
+
+    <div class="quiz-section">
+      <div class="quiz-header-row">
+        <span class="quiz-badge">🎓 Quiz</span>
+        <h3>Module 3 — Testez vos connaissances</h3>
+      </div>
+      <button class="btn-quiz-start" onclick="startQuiz(3)">🚀 Commencer le Quiz</button>
+      <div id="quiz-container-3"></div>
     </div>
   </section>
 
-  <!-- ====== MODULE 3 — ANALYSE TECHNIQUE ====== -->
-  <section id="module3" class="section">
-    <div class="module-header">
-      <div class="module-badge">MODULE 03</div>
-      <h2 class="module-title">📊 Analyse Technique</h2>
+  <!-- ======================================================
+       MODULE 4 - Analyse Fondamentale
+  ====================================================== -->
+  <section class="section module-section" id="module-4">
+    <div class="section-header">
+      <div class="section-badge">Module 4</div>
+      <h1 class="section-title">Analyse Fondamentale</h1>
+      <p class="section-subtitle">Comprendre la valeur réelle des actifs à travers données économiques, bilans financiers et métriques on-chain.</p>
     </div>
 
-    <!-- Chandeliers japonais -->
-    <div class="visual-block reveal">
-      <h3 class="block-title">🕯️ Chandeliers Japonais</h3>
-      <div class="candle-anatomy">
-        <svg class="candle-svg" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
-          <!-- Bougie verte (haussière) -->
-          <line x1="50" y1="30" x2="50" y2="80" stroke="#10b981" stroke-width="2"/>
-          <rect x="30" y="80" width="40" height="120" rx="3" fill="#10b981"/>
-          <line x1="50" y1="200" x2="50" y2="240" stroke="#10b981" stroke-width="2"/>
-          <!-- Labels -->
-          <text x="100" y="35" fill="#10b981" font-size="12" font-family="Inter">▲ Mèche haute</text>
-          <text x="100" y="85" fill="#94a3b8" font-size="11" font-family="Inter">Plus haut</text>
-          <text x="100" y="140" fill="#10b981" font-size="12" font-family="Inter">CORPS</text>
-          <text x="100" y="160" fill="#94a3b8" font-size="10" font-family="Inter">Ouverture→Clôture</text>
-          <text x="100" y="205" fill="#94a3b8" font-size="11" font-family="Inter">Plus bas</text>
-          <text x="100" y="245" fill="#10b981" font-size="12" font-family="Inter">▼ Mèche basse</text>
-          <!-- Arrows -->
-          <line x1="98" y1="33" x2="60" y2="33" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3"/>
-          <line x1="98" y1="83" x2="72" y2="83" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3"/>
-          <line x1="98" y1="200" x2="72" y2="200" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3"/>
-          <line x1="98" y1="243" x2="60" y2="243" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3"/>
-        </svg>
-        <svg class="candle-svg" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
-          <!-- Bougie rouge (baissière) -->
-          <line x1="50" y1="30" x2="50" y2="80" stroke="#ef4444" stroke-width="2"/>
-          <rect x="30" y="80" width="40" height="120" rx="3" fill="#ef4444"/>
-          <line x1="50" y1="200" x2="50" y2="240" stroke="#ef4444" stroke-width="2"/>
-          <!-- Labels -->
-          <text x="100" y="85" fill="#ef4444" font-size="12" font-family="Inter">Clôture (bas)</text>
-          <text x="100" y="140" fill="#ef4444" font-size="12" font-family="Inter">CORPS</text>
-          <text x="100" y="160" fill="#94a3b8" font-size="10" font-family="Inter">Baisse du prix</text>
-          <text x="100" y="205" fill="#ef4444" font-size="12" font-family="Inter">Ouverture (haut)</text>
-          <!-- Arrows -->
-          <line x1="98" y1="83" x2="72" y2="83" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3"/>
-          <line x1="98" y1="200" x2="72" y2="200" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3"/>
-        </svg>
+    <h2 class="content-h2">📈 Actions — Ratios de Valorisation</h2>
+    <div class="card">
+      <p>L'analyse fondamentale cherche à déterminer la <strong>valeur intrinsèque</strong> d'une entreprise pour savoir si son action est sur- ou sous-évaluée.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Ratio</th><th>Formule</th><th>Interprétation</th></tr></thead>
+          <tbody>
+            <tr><td>PER (P/E)</td><td>Cours / BNA</td><td>PER &lt;15 : bon marché. PER &gt;25 : cher. Varie selon secteur.</td></tr>
+            <tr><td>BNA</td><td>Bénéfice net / Nb actions</td><td>En croissance = positif. Mesure la rentabilité par action.</td></tr>
+            <tr><td>Dette/Fonds propres</td><td>Dettes totales / Capitaux propres</td><td>&lt;1 = peu endetté. &gt;2 = risque élevé.</td></tr>
+            <tr><td>ROE</td><td>Bénéfice net / Capitaux propres</td><td>Rentabilité des fonds propres. &gt;15% = excellent.</td></tr>
+            <tr><td>PEG</td><td>PER / Taux de croissance bénéfices</td><td>PEG &lt;1 = sous-évalué par rapport à sa croissance.</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
-    <!-- Patterns de chandeliers -->
-    <div class="visual-block reveal">
-      <h3 class="block-title">🔮 Patterns Clés</h3>
-      <div class="patterns-grid">
-        <div class="pattern-card bullish">
-          <div class="pattern-candles">
-            <svg viewBox="0 0 60 80" width="60" height="80">
-              <line x1="30" y1="5" x2="30" y2="20" stroke="#ef4444" stroke-width="2"/>
-              <rect x="18" y="20" width="24" height="35" rx="2" fill="#ef4444"/>
-              <line x1="30" y1="55" x2="30" y2="65" stroke="#ef4444" stroke-width="2"/>
-              <line x1="30" y1="65" x2="30" y2="75" stroke="#10b981" stroke-width="2"/>
-              <rect x="18" y="40" width="24" height="35" rx="2" fill="#10b981"/>
-            </svg>
-          </div>
-          <div class="pattern-name">Englobant Haussier</div>
-          <div class="pattern-signal green-sig">🟢 ACHAT</div>
-        </div>
-        <div class="pattern-card bearish">
-          <div class="pattern-candles">
-            <svg viewBox="0 0 60 80" width="60" height="80">
-              <line x1="30" y1="5" x2="30" y2="15" stroke="#10b981" stroke-width="2"/>
-              <rect x="18" y="15" width="24" height="30" rx="2" fill="#10b981"/>
-              <line x1="30" y1="45" x2="30" y2="55" stroke="#10b981" stroke-width="2"/>
-              <line x1="30" y1="5" x2="30" y2="15" stroke="#ef4444" stroke-width="2"/>
-              <rect x="14" y="10" width="32" height="45" rx="2" fill="#ef4444"/>
-              <line x1="30" y1="55" x2="30" y2="70" stroke="#ef4444" stroke-width="2"/>
-            </svg>
-          </div>
-          <div class="pattern-name">Englobant Baissier</div>
-          <div class="pattern-signal red-sig">🔴 VENTE</div>
-        </div>
-        <div class="pattern-card doji">
-          <div class="pattern-candles">
-            <svg viewBox="0 0 60 80" width="60" height="80">
-              <line x1="30" y1="10" x2="30" y2="38" stroke="#f59e0b" stroke-width="2"/>
-              <rect x="15" y="38" width="30" height="4" rx="1" fill="#f59e0b"/>
-              <line x1="30" y1="42" x2="30" y2="70" stroke="#f59e0b" stroke-width="2"/>
-            </svg>
-          </div>
-          <div class="pattern-name">Doji</div>
-          <div class="pattern-signal yellow-sig">🟡 INDÉCISION</div>
-        </div>
-        <div class="pattern-card hammer">
-          <div class="pattern-candles">
-            <svg viewBox="0 0 60 80" width="60" height="80">
-              <line x1="30" y1="10" x2="30" y2="18" stroke="#10b981" stroke-width="2"/>
-              <rect x="18" y="18" width="24" height="15" rx="2" fill="#10b981"/>
-              <line x1="30" y1="33" x2="30" y2="70" stroke="#10b981" stroke-width="2"/>
-            </svg>
-          </div>
-          <div class="pattern-name">Marteau</div>
-          <div class="pattern-signal green-sig">🟢 RETOURNEMENT</div>
-        </div>
+    <h2 class="content-h2">💱 Forex — Facteurs Fondamentaux</h2>
+    <div class="cards-grid">
+      <div class="card card-sm">
+        <div style="font-size:32px;margin-bottom:8px">🏦</div>
+        <h3 class="card-title">Taux d'Intérêt</h3>
+        <p>Facteur numéro 1. Une banque centrale qui hausse ses taux attire les capitaux étrangers → la devise s'apprécie.</p>
+      </div>
+      <div class="card card-sm">
+        <div style="font-size:32px;margin-bottom:8px">📊</div>
+        <h3 class="card-title">PIB (GDP)</h3>
+        <p>Mesure la croissance économique. PIB en hausse = économie forte = devise forte.</p>
+      </div>
+      <div class="card card-sm">
+        <div style="font-size:32px;margin-bottom:8px">🌡️</div>
+        <h3 class="card-title">Inflation (CPI)</h3>
+        <p>Forte inflation → banque centrale hausse les taux → impact majeur sur la devise.</p>
+      </div>
+      <div class="card card-sm">
+        <div style="font-size:32px;margin-bottom:8px">👷</div>
+        <h3 class="card-title">Emploi (NFP)</h3>
+        <p>Non-Farm Payrolls US, 1er vendredi du mois. Publication très surveillée. Chiffre fort = USD hausse.</p>
       </div>
     </div>
 
-    <!-- Indicateurs visuels -->
-    <div class="visual-block reveal">
-      <h3 class="block-title">📡 Indicateurs Techniques</h3>
-      <div class="indicators-grid">
-        <div class="indicator-card" onclick="showIndicator('rsi')">
-          <div class="ind-icon">📏</div>
-          <div class="ind-name">RSI</div>
-          <div class="rsi-gauge">
-            <div class="gauge-track">
-              <div class="gauge-zone red-zone"></div>
-              <div class="gauge-zone yellow-zone"></div>
-              <div class="gauge-zone green-zone"></div>
-              <div class="gauge-needle" style="left:65%"></div>
-            </div>
-            <div class="gauge-labels"><span>0</span><span>30</span><span>70</span><span>100</span></div>
-          </div>
-          <div class="ind-tip">Survente / Surachat</div>
-        </div>
-        <div class="indicator-card" onclick="showIndicator('macd')">
-          <div class="ind-icon">📊</div>
-          <div class="ind-name">MACD</div>
-          <svg viewBox="0 0 120 60" width="120" height="60" class="mini-chart">
-            <line x1="0" y1="30" x2="120" y2="30" stroke="#1e293b" stroke-width="1"/>
-            <rect x="10" y="15" width="8" height="15" fill="#10b981" rx="1"/>
-            <rect x="22" y="10" width="8" height="20" fill="#10b981" rx="1"/>
-            <rect x="34" y="18" width="8" height="12" fill="#10b981" rx="1"/>
-            <rect x="46" y="30" width="8" height="10" fill="#ef4444" rx="1"/>
-            <rect x="58" y="30" width="8" height="15" fill="#ef4444" rx="1"/>
-            <rect x="70" y="30" width="8" height="8" fill="#ef4444" rx="1"/>
-            <rect x="82" y="22" width="8" height="8" fill="#10b981" rx="1"/>
-            <rect x="94" y="16" width="8" height="14" fill="#10b981" rx="1"/>
-          </svg>
-          <div class="ind-tip">Convergence / Divergence</div>
-        </div>
-        <div class="indicator-card" onclick="showIndicator('bollinger')">
-          <div class="ind-icon">📐</div>
-          <div class="ind-name">Bandes de Bollinger</div>
-          <svg viewBox="0 0 120 60" width="120" height="60" class="mini-chart">
-            <path d="M0,10 C30,5 60,15 90,8 L120,12" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4"/>
-            <path d="M0,30 C30,28 60,32 90,29 L120,31" fill="none" stroke="#f59e0b" stroke-width="2"/>
-            <path d="M0,50 C30,55 60,45 90,52 L120,48" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4"/>
-          </svg>
-          <div class="ind-tip">Volatilité du marché</div>
-        </div>
-        <div class="indicator-card" onclick="showIndicator('ma')">
-          <div class="ind-icon">📈</div>
-          <div class="ind-name">Moyennes Mobiles</div>
-          <svg viewBox="0 0 120 60" width="120" height="60" class="mini-chart">
-            <path d="M0,45 L20,40 L40,35 L60,38 L80,25 L100,20 L120,15" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3"/>
-            <path d="M0,50 L20,44 L40,38 L60,35 L80,28 L100,18 L120,13" fill="none" stroke="#10b981" stroke-width="2"/>
-            <path d="M0,48 L20,42 L40,36 L60,32 L80,22 L100,16 L120,11" fill="none" stroke="#3b82f6" stroke-width="2"/>
-          </svg>
-          <div class="ind-tip">MA20 / MA50 / MA200</div>
-        </div>
+    <h2 class="content-h2">₿ Crypto — Tokenomics &amp; Métriques On-Chain</h2>
+    <div class="card">
+      <h3 class="card-title">Tokenomics</h3>
+      <ul>
+        <li><strong>Offre totale (Total Supply) :</strong> Quantité maximale de tokens qui existeront</li>
+        <li><strong>Circulating Supply :</strong> Tokens actuellement en circulation</li>
+        <li><strong>Market Cap :</strong> Prix × Circulating Supply</li>
+        <li><strong>Mécanisme de burn :</strong> Destruction de tokens pour réduire l'offre → hausse de valeur potentielle</li>
+        <li><strong>Vesting schedule :</strong> Calendrier de déblocage des tokens équipe/investisseurs — risque de vente massive</li>
+      </ul>
+      <h3 class="card-title" style="margin-top:16px">Métriques On-Chain</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Métrique</th><th>Ce qu'elle mesure</th><th>Signal positif</th></tr></thead>
+          <tbody>
+            <tr><td>Hashrate (BTC)</td><td>Puissance de calcul réseau</td><td>En hausse = réseau plus sécurisé</td></tr>
+            <tr><td>Adresses actives</td><td>Utilisateurs actifs quotidiens</td><td>En hausse = adoption croissante</td></tr>
+            <tr><td>NVT Ratio</td><td>Valorisation vs volume transactionnel</td><td>NVT bas = sous-évalué</td></tr>
+            <tr><td>Exchange outflows</td><td>Sorties de crypto des exchanges</td><td>Hausse = moins de pression vendeuse</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
-    <!-- Supports & Résistances -->
-    <div class="visual-block reveal">
-      <h3 class="block-title">📐 Supports & Résistances</h3>
-      <div class="sr-visual">
-        <svg viewBox="0 0 500 200" width="100%" xmlns="http://www.w3.org/2000/svg">
-          <line x1="0" y1="50" x2="500" y2="50" stroke="#ef4444" stroke-width="2" stroke-dasharray="8"/>
-          <text x="405" y="44" fill="#ef4444" font-size="12" font-family="Inter">RÉSISTANCE</text>
-          <line x1="0" y1="150" x2="500" y2="150" stroke="#10b981" stroke-width="2" stroke-dasharray="8"/>
-          <text x="420" y="166" fill="#10b981" font-size="12" font-family="Inter">SUPPORT</text>
-          <path d="M0,130 L50,120 L100,110 L150,90 L200,140 L250,60 L300,100 L350,70 L400,55 L450,80 L500,65" fill="none" stroke="#3b82f6" stroke-width="2.5"/>
-          <!-- Bounce arrows -->
-          <path d="M155,95 L155,145" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-up)"/>
-          <path d="M250,65 L250,50" stroke="#ef4444" stroke-width="2"/>
-          <path d="M250,65 L250,115" stroke="#10b981" stroke-width="2"/>
-          <defs>
-            <marker id="arrow-up" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
-              <path d="M0,6 L3,0 L6,6" fill="#10b981"/>
-            </marker>
-          </defs>
-        </svg>
+    <h2 class="content-h2">📅 Le Calendrier Économique</h2>
+    <div class="card">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Annonce</th><th>Fréquence</th><th>Impact</th><th>Marchés</th></tr></thead>
+          <tbody>
+            <tr><td>NFP (Non-Farm Payrolls)</td><td>Mensuelle (1er vendredi)</td><td><span class="badge badge-red">Très fort</span></td><td>USD, indices, or</td></tr>
+            <tr><td>CPI (Inflation)</td><td>Mensuelle</td><td><span class="badge badge-red">Très fort</span></td><td>Toutes devises</td></tr>
+            <tr><td>Décision Fed (FOMC)</td><td>8x/an</td><td><span class="badge badge-red">Majeur</span></td><td>Tous marchés</td></tr>
+            <tr><td>PIB (GDP)</td><td>Trimestrielle</td><td><span class="badge badge-orange">Fort</span></td><td>Devises, actions</td></tr>
+            <tr><td>Résultats d'entreprises</td><td>Trimestrielle</td><td><span class="badge badge-yellow">Moyen–Fort</span></td><td>Actions concernées</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box box-warning" style="margin-top:12px">
+        <div class="box-icon">⚠️</div>
+        <div>Évitez de trader juste avant une publication majeure si vous êtes débutant. La volatilité soudaine peut déclencher votre stop-loss avant que le marché parte dans votre direction.</div>
       </div>
     </div>
 
-    <!-- Quiz Module 3 -->
-    <div class="quiz-block reveal" id="quiz3">
-      <div class="quiz-header">🎯 Quiz — Module 3</div>
-      <div class="quiz-questions" id="q3"></div>
+    <div class="quiz-section">
+      <div class="quiz-header-row">
+        <span class="quiz-badge">🎓 Quiz</span>
+        <h3>Module 4 — Testez vos connaissances</h3>
+      </div>
+      <button class="btn-quiz-start" onclick="startQuiz(4)">🚀 Commencer le Quiz</button>
+      <div id="quiz-container-4"></div>
     </div>
   </section>
 
-  <!-- ====== MODULE 4 — ANALYSE FONDAMENTALE ====== -->
-  <section id="module4" class="section">
-    <div class="module-header">
-      <div class="module-badge">MODULE 04</div>
-      <h2 class="module-title">🔍 Analyse Fondamentale</h2>
+  <!-- ======================================================
+       MODULE 5 - Gestion du Risque
+  ====================================================== -->
+  <section class="section module-section" id="module-5">
+    <div class="section-header">
+      <div class="section-badge">Module 5</div>
+      <h1 class="section-title">Gestion du Risque</h1>
+      <p class="section-subtitle">La compétence la plus importante : protéger votre capital pour survivre et prospérer sur le long terme.</p>
     </div>
 
-    <div class="visual-block reveal">
-      <h3 class="block-title">🏢 Pour les Actions</h3>
-      <div class="fundamental-icons">
-        <div class="fund-item">
-          <div class="fund-icon">📊</div>
-          <div class="fund-name">PER</div>
-          <div class="fund-desc">Prix / Bénéfice</div>
-          <div class="fund-scale">
-            <div class="scale-bar">
-              <div class="scale-fill" style="width:40%"></div>
-            </div>
-            <span class="scale-label">Bon si &lt; 15</span>
-          </div>
-        </div>
-        <div class="fund-item">
-          <div class="fund-icon">💰</div>
-          <div class="fund-name">BNA</div>
-          <div class="fund-desc">Bénéfice Net/Action</div>
-          <div class="fund-scale">
-            <div class="scale-bar green-scale">
-              <div class="scale-fill" style="width:70%"></div>
-            </div>
-            <span class="scale-label">Plus c'est haut = mieux</span>
-          </div>
-        </div>
-        <div class="fund-item">
-          <div class="fund-icon">💳</div>
-          <div class="fund-name">Ratio Dette</div>
-          <div class="fund-desc">Dette / Capitaux propres</div>
-          <div class="fund-scale">
-            <div class="scale-bar red-scale">
-              <div class="scale-fill" style="width:80%"></div>
-            </div>
-            <span class="scale-label">Danger si &gt; 2</span>
-          </div>
-        </div>
-        <div class="fund-item">
-          <div class="fund-icon">📈</div>
-          <div class="fund-name">Chiffre d'affaires</div>
-          <div class="fund-desc">Croissance annuelle</div>
-          <div class="fund-scale">
-            <div class="scale-bar green-scale">
-              <div class="scale-fill" style="width:60%"></div>
-            </div>
-            <span class="scale-label">Croissance soutenue</span>
-          </div>
+    <div class="box box-danger">
+      <div class="box-icon">⛔</div>
+      <div>90% des traders perdants n'ont pas de stratégie de gestion du risque. La gestion du risque est ce qui sépare les professionnels des amateurs. Avant les profits, pensez à protéger votre capital.</div>
+    </div>
+
+    <h2 class="content-h2">📐 La Règle des 1–2%</h2>
+    <div class="card">
+      <p>La règle d'or : <strong>ne jamais risquer plus de 1 à 2% de son capital total</strong> sur un seul trade.</p>
+      <div class="formula-box">
+        <div class="formula-label">Exemple avec 10 000 €</div>
+        <div class="formula-main">Risque max (2%) = 200 € par trade</div>
+        <div class="formula-sub">10 trades perdants consécutifs → perte maximale de 20% du capital</div>
+      </div>
+    </div>
+
+    <h2 class="content-h2">🧮 Calcul de la Taille de Position</h2>
+    <div class="card">
+      <div class="formula-box">
+        <div class="formula-label">Formule — Taille de Position</div>
+        <div class="formula-main">Taille = (Capital × % Risque) ÷ (Prix Entrée − Stop Loss)</div>
+      </div>
+      <div class="box box-info" style="margin-top:12px">
+        <div class="box-icon">📊</div>
+        <div>
+          <strong>Exemple :</strong> Capital 10 000 € | Risque 2% = 200 €<br>
+          Entrée BTC : 30 000 € | Stop-Loss : 29 400 € (écart = 600 €)<br>
+          <strong>Taille = 200 ÷ 600 = 0,333 BTC</strong><br>
+          Si le SL est touché : perte = 0,333 × 600 = 200 € (exactement 2% ✓)
         </div>
       </div>
     </div>
 
-    <div class="visual-block reveal">
-      <h3 class="block-title">🌐 Pour le Forex</h3>
-      <div class="macro-grid">
-        <div class="macro-card">
-          <div class="macro-icon">🏦</div>
-          <div class="macro-name">Taux d'intérêt</div>
-          <div class="macro-impact">
-            <span class="impact-arrow up">↑</span> Taux → Devise plus forte
-          </div>
-        </div>
-        <div class="macro-card">
-          <div class="macro-icon">📉</div>
-          <div class="macro-name">Inflation</div>
-          <div class="macro-impact">
-            <span class="impact-arrow down">↑</span> Inflation → Devise affaiblie
-          </div>
-        </div>
-        <div class="macro-card">
-          <div class="macro-icon">🏭</div>
-          <div class="macro-name">PIB</div>
-          <div class="macro-impact">
-            <span class="impact-arrow up">↑</span> PIB → Économie forte
-          </div>
-        </div>
-        <div class="macro-card">
-          <div class="macro-icon">👷</div>
-          <div class="macro-name">Emploi (NFP)</div>
-          <div class="macro-impact">
-            <span class="impact-arrow up">↑</span> Emploi → Confiance hausse
-          </div>
+    <h2 class="content-h2">🛑 Stop-Loss et Take-Profit</h2>
+    <div class="cards-grid">
+      <div class="card card-sm" style="border-color:rgba(239,68,68,0.4)">
+        <h3 class="card-title" style="color:#ef4444">🛑 Stop-Loss (SL)</h3>
+        <p>Ferme automatiquement votre position en perte si le prix atteint un niveau prédéfini. <strong>Protection indispensable.</strong></p>
+        <ul>
+          <li>Placez-le sur un niveau technique</li>
+          <li>Ne le déplacez jamais dans le mauvais sens</li>
+          <li>Respectez-le toujours, sans exception</li>
+        </ul>
+      </div>
+      <div class="card card-sm" style="border-color:rgba(16,185,129,0.4)">
+        <h3 class="card-title" style="color:#10b981">✅ Take-Profit (TP)</h3>
+        <p>Ferme automatiquement votre position en profit à un niveau cible. <strong>Sécurise vos gains automatiquement.</strong></p>
+        <ul>
+          <li>Placez-le sur une résistance importante</li>
+          <li>Utilisez un trailing stop pour laisser courir</li>
+          <li>Objectif : minimum 2× le montant risqué</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="content-h2">⚖️ Ratio Risque/Récompense (R/R)</h2>
+    <div class="card">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Ratio R/R</th><th>Win rate minimum pour être rentable</th><th>Recommandation</th></tr></thead>
+          <tbody>
+            <tr><td>1:1</td><td>&gt;50% des trades</td><td><span class="badge badge-red">Insuffisant</span></td></tr>
+            <tr><td>1:2</td><td>&gt;34% des trades</td><td><span class="badge badge-yellow">Acceptable</span></td></tr>
+            <tr><td>1:3</td><td>&gt;25% des trades</td><td><span class="badge badge-green">Bon</span></td></tr>
+            <tr><td>1:5</td><td>&gt;17% des trades</td><td><span class="badge badge-green">Excellent</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box box-tip" style="margin-top:12px">
+        <div class="box-icon">✅</div>
+        <div>Avec un ratio 1:2, même si vous ne gagnez que <strong>40% de vos trades</strong>, vous êtes profitable à long terme. Le ratio R/R est plus important que le taux de réussite.</div>
+      </div>
+    </div>
+
+    <h2 class="content-h2">⚠️ Le Levier Financier — Danger</h2>
+    <div class="card">
+      <div class="box box-danger">
+        <div class="box-icon">⛔</div>
+        <div>
+          <strong>Exemple levier x10 sur 1 000 € :</strong><br>
+          Position contrôlée : 10 000 €<br>
+          +5% de hausse → gain de 500 € (+50% du capital) ✅<br>
+          -5% de baisse → perte de 500 € (-50% du capital) ❌<br>
+          -10% de baisse → <strong>liquidation totale du compte</strong> 💥<br><br>
+          Règle : Ne jamais dépasser x3–x5 de levier en débutant.
         </div>
       </div>
     </div>
 
-    <div class="visual-block reveal">
-      <h3 class="block-title">₿ Pour les Cryptos</h3>
-      <div class="crypto-fund-grid">
-        <div class="crypto-pill">📄 Whitepaper</div>
-        <div class="crypto-pill">👥 Équipe</div>
-        <div class="crypto-pill">🔗 Tokenomics</div>
-        <div class="crypto-pill">🌍 Adoption</div>
-        <div class="crypto-pill">🔐 Sécurité</div>
-        <div class="crypto-pill">⚙️ Utilité</div>
-        <div class="crypto-pill">📡 On-chain</div>
-        <div class="crypto-pill">🏛️ DAO / Gouvernance</div>
+    <div class="quiz-section">
+      <div class="quiz-header-row">
+        <span class="quiz-badge">🎓 Quiz</span>
+        <h3>Module 5 — Testez vos connaissances</h3>
       </div>
-    </div>
-
-    <!-- Quiz Module 4 -->
-    <div class="quiz-block reveal" id="quiz4">
-      <div class="quiz-header">🎯 Quiz — Module 4</div>
-      <div class="quiz-questions" id="q4"></div>
+      <button class="btn-quiz-start" onclick="startQuiz(5)">🚀 Commencer le Quiz</button>
+      <div id="quiz-container-5"></div>
     </div>
   </section>
 
-  <!-- ====== MODULE 5 — GESTION DU RISQUE ====== -->
-  <section id="module5" class="section">
-    <div class="module-header">
-      <div class="module-badge">MODULE 05</div>
-      <h2 class="module-title">🛡️ Gestion du Risque</h2>
+  <!-- ======================================================
+       MODULE 6 - Psychologie du Trading
+  ====================================================== -->
+  <section class="section module-section" id="module-6">
+    <div class="section-header">
+      <div class="section-badge">Module 6</div>
+      <h1 class="section-title">Psychologie du Trading</h1>
+      <p class="section-subtitle">Votre plus grand ennemi n'est pas le marché — c'est vous-même. Maîtrisez vos émotions.</p>
     </div>
 
-    <!-- Règle du 1-2% -->
-    <div class="visual-block reveal">
-      <h3 class="block-title">💡 La Règle d'Or : 1–2% par trade</h3>
-      <div class="risk-visual">
-        <div class="capital-circle">
-          <div class="circle-outer">
-            <div class="circle-inner">
-              <div class="circle-text">💰</div>
-              <div class="circle-label">Capital Total</div>
-              <div class="circle-amount">10 000 €</div>
-            </div>
-            <div class="risk-slice">
-              <div class="risk-icon">⚠️</div>
-              <div class="risk-pct">MAX 2%</div>
-              <div class="risk-amount">= 200 €</div>
-            </div>
-          </div>
-        </div>
-        <div class="risk-explanation">
-          <div class="risk-rule">
-            <div class="rule-icon">✅</div>
-            <div class="rule-text">Risque max par trade : <strong>1–2%</strong></div>
-          </div>
-          <div class="risk-rule">
-            <div class="rule-icon">🎯</div>
-            <div class="rule-text">50 trades perdants → survie garantie</div>
-          </div>
-          <div class="risk-rule">
-            <div class="rule-icon">❌</div>
-            <div class="rule-text">Risquer 50% = ruin rapide</div>
-          </div>
-        </div>
-      </div>
+    <div class="box box-warning">
+      <div class="box-icon">⚠️</div>
+      <div>Plus de <strong>70% des pertes en trading</strong> sont dues à des erreurs psychologiques, pas à des erreurs d'analyse. La meilleure stratégie du monde ne sert à rien sans la maîtrise de soi.</div>
     </div>
 
-    <!-- Ratio Risque/Rendement -->
-    <div class="visual-block reveal">
-      <h3 class="block-title">⚖️ Ratio Risque / Rendement</h3>
-      <div class="rr-visual">
-        <div class="rr-entry">
-          <div class="rr-label">📍 ENTRÉE</div>
-          <div class="rr-price">100€</div>
-        </div>
-        <div class="rr-bars">
-          <div class="rr-loss-bar">
-            <div class="rr-bar red-bar" style="height:60px">
-              <span>Stop Loss<br>-10€</span>
-            </div>
-          </div>
-          <div class="vs-circle">R/R</div>
-          <div class="rr-profit-bar">
-            <div class="rr-bar green-bar" style="height:120px">
-              <span>Take Profit<br>+20€</span>
-            </div>
-          </div>
-        </div>
-        <div class="rr-ratio-badge">1:2 ✅</div>
-        <div class="rr-verdict">Minimum recommandé : <strong>1:2</strong></div>
-      </div>
+    <h2 class="content-h2">🧩 Les Biais Cognitifs</h2>
+
+    <div class="card">
+      <h3 class="card-title">😱 FOMO — Fear Of Missing Out</h3>
+      <p>La peur de manquer une opportunité pousse les traders à <strong>entrer précipitamment</strong> quand le prix monte rapidement.</p>
+      <ul>
+        <li><strong>Symptômes :</strong> Entrer en position après une forte hausse, acheter au sommet</li>
+        <li><strong>Conséquences :</strong> Entrée au pire moment, sans plan, sans stop-loss</li>
+        <li><strong>Remède :</strong> Il y a toujours une prochaine opportunité. Attendez les retracements.</li>
+      </ul>
     </div>
 
-    <!-- Pyramide du risque -->
-    <div class="visual-block reveal">
-      <h3 class="block-title">🔺 Pyramide du Risque</h3>
-      <div class="risk-pyramid">
-        <div class="pyramid-level level-1">
-          <span>🎰 Jeu pur</span><span class="pct-risk">→ Fuite !</span>
-        </div>
-        <div class="pyramid-level level-2">
-          <span>⚡ Scalping sans plan</span><span class="pct-risk">Très risqué</span>
-        </div>
-        <div class="pyramid-level level-3">
-          <span>📊 Trading actif + levier</span><span class="pct-risk">Risqué</span>
-        </div>
-        <div class="pyramid-level level-4">
-          <span>🌊 Swing Trading + SL</span><span class="pct-risk">Modéré</span>
-        </div>
-        <div class="pyramid-level level-5">
-          <span>🏔️ Investissement long terme</span><span class="pct-risk">Faible</span>
-        </div>
-      </div>
+    <div class="card">
+      <h3 class="card-title">🔍 Biais de Confirmation</h3>
+      <p>Chercher uniquement les informations qui <strong>confirment notre opinion préexistante</strong>, en ignorant les signaux contraires.</p>
+      <ul>
+        <li><strong>Exemple :</strong> Vous pensez que Bitcoin va monter, donc vous ignorez tous les signaux baissiers</li>
+        <li><strong>Remède :</strong> Forcez-vous à chercher des arguments contre votre position. Jouez l'avocat du diable.</li>
+      </ul>
     </div>
 
-    <!-- Quiz Module 5 -->
-    <div class="quiz-block reveal" id="quiz5">
-      <div class="quiz-header">🎯 Quiz — Module 5</div>
-      <div class="quiz-questions" id="q5"></div>
-    </div>
-  </section>
-
-  <!-- ====== MODULE 6 — PSYCHOLOGIE ====== -->
-  <section id="module6" class="section">
-    <div class="module-header">
-      <div class="module-badge">MODULE 06</div>
-      <h2 class="module-title">🧠 Psychologie du Trading</h2>
+    <div class="card">
+      <h3 class="card-title">😤 Excès de Confiance</h3>
+      <p>Après une série de succès, le trader se croit invincible et <strong>augmente son risque de façon irrationnelle</strong>.</p>
+      <ul>
+        <li><strong>Remède :</strong> Gardez toujours la même taille de position quoi qu'il arrive. Les règles de gestion du risque ne changent pas selon votre humeur ou vos performances récentes.</li>
+      </ul>
     </div>
 
-    <!-- Les émotions -->
-    <div class="visual-block reveal">
-      <h3 class="block-title">😱 Les Émotions qui Détruisent</h3>
-      <div class="emotions-wheel">
-        <div class="emotion-card fomo">
-          <div class="emotion-emoji">😰</div>
-          <div class="emotion-name">FOMO</div>
-          <div class="emotion-desc">Fear of Missing Out<br>→ Entrée précipitée</div>
-        </div>
-        <div class="emotion-card revenge">
-          <div class="emotion-emoji">😤</div>
-          <div class="emotion-name">Revenge Trading</div>
-          <div class="emotion-desc">Rattraper une perte<br>→ Perte double</div>
-        </div>
-        <div class="emotion-card greed">
-          <div class="emotion-emoji">🤑</div>
-          <div class="emotion-name">Avidité</div>
-          <div class="emotion-desc">Rester trop longtemps<br>→ Gain évaporé</div>
-        </div>
-        <div class="emotion-card fear">
-          <div class="emotion-emoji">😨</div>
-          <div class="emotion-name">Peur</div>
-          <div class="emotion-desc">Sortir trop tôt<br>→ Profit limité</div>
-        </div>
-        <div class="emotion-card overconfidence">
-          <div class="emotion-emoji">😎</div>
-          <div class="emotion-name">Surconfiance</div>
-          <div class="emotion-desc">Après succès<br>→ Position trop grande</div>
-        </div>
-        <div class="emotion-card hope">
-          <div class="emotion-emoji">🙏</div>
-          <div class="emotion-name">Espoir</div>
-          <div class="emotion-desc">Garder perdant<br>→ Ruine progressive</div>
-        </div>
-      </div>
+    <div class="card">
+      <h3 class="card-title">😢 Aversion à la Perte</h3>
+      <p>Psychologiquement, une perte de 100 € est ressentie comme deux fois plus douloureuse qu'un gain de 100 € n'est agréable (Kahneman &amp; Tversky). Cela pousse à :</p>
+      <ul>
+        <li>Couper trop tôt les positions gagnantes ("sécuriser")</li>
+        <li>Laisser courir les positions perdantes ("espoir de retournement")</li>
+        <li><strong>Remède :</strong> Définissez SL et TP avant d'entrer, respectez-les toujours sans exception.</li>
+      </ul>
     </div>
 
-    <!-- Plan de trading -->
-    <div class="visual-block reveal">
-      <h3 class="block-title">📋 Plan de Trading = Règles Fixes</h3>
-      <div class="trading-plan-flow">
-        <div class="plan-step">
+    <h2 class="content-h2">📝 Plan de Trading</h2>
+    <div class="card">
+      <p>Un <strong>plan de trading</strong> est votre "constitution" — un document écrit définissant précisément toutes vos règles.</p>
+      <div class="steps-list">
+        <div class="step-item">
           <div class="step-num">1</div>
-          <div class="step-icon">🎯</div>
-          <div class="step-label">Condition d'entrée</div>
+          <div><strong>Marchés tradés :</strong> Quels actifs vous tradez (ex: EUR/USD et BTC/USDT uniquement)</div>
         </div>
-        <div class="plan-arrow">→</div>
-        <div class="plan-step">
+        <div class="step-item">
           <div class="step-num">2</div>
-          <div class="step-icon">🛑</div>
-          <div class="step-label">Stop Loss fixé</div>
+          <div><strong>Stratégie d'entrée :</strong> Conditions exactes (ex: RSI &lt;30 + rebond sur support)</div>
         </div>
-        <div class="plan-arrow">→</div>
-        <div class="plan-step">
+        <div class="step-item">
           <div class="step-num">3</div>
-          <div class="step-icon">💰</div>
-          <div class="step-label">Take Profit défini</div>
+          <div><strong>Gestion du risque :</strong> % capital risqué, règles SL/TP</div>
         </div>
-        <div class="plan-arrow">→</div>
-        <div class="plan-step">
+        <div class="step-item">
           <div class="step-num">4</div>
-          <div class="step-icon">📓</div>
-          <div class="step-label">Journal du trade</div>
+          <div><strong>Stratégie de sortie :</strong> Conditions exactes pour sortir (gain ou perte)</div>
         </div>
-        <div class="plan-arrow">→</div>
-        <div class="plan-step">
+        <div class="step-item">
           <div class="step-num">5</div>
-          <div class="step-icon">📊</div>
-          <div class="step-label">Analyse mensuelle</div>
+          <div><strong>Règles de discipline :</strong> Max trades/jour, pause après X pertes consécutives</div>
         </div>
       </div>
     </div>
 
-    <!-- Quiz Module 6 -->
-    <div class="quiz-block reveal" id="quiz6">
-      <div class="quiz-header">🎯 Quiz — Module 6</div>
-      <div class="quiz-questions" id="q6"></div>
+    <h2 class="content-h2">📓 Journal de Trading</h2>
+    <div class="card">
+      <p>Le <strong>journal de trading</strong> est l'outil le plus sous-estimé et le plus efficace pour progresser. Notez après chaque trade :</p>
+      <ul>
+        <li>Date, actif, direction (long/short)</li>
+        <li>Prix d'entrée, stop-loss, take-profit</li>
+        <li>Raison de l'entrée (signal technique/fondamental)</li>
+        <li>Résultat (gain/perte en € et en %)</li>
+        <li>Erreurs commises et leçons apprises</li>
+        <li>Votre état émotionnel au moment du trade</li>
+      </ul>
+      <div class="box box-tip" style="margin-top:16px">
+        <div class="box-icon">💡</div>
+        <div>Après 50–100 trades journalisés, des patterns d'erreurs récurrentes apparaissent clairement. Vous pouvez alors les éliminer. C'est ainsi que les traders professionnels progressent.</div>
+      </div>
+    </div>
+
+    <div class="quiz-section">
+      <div class="quiz-header-row">
+        <span class="quiz-badge">🎓 Quiz</span>
+        <h3>Module 6 — Testez vos connaissances</h3>
+      </div>
+      <button class="btn-quiz-start" onclick="startQuiz(6)">🚀 Commencer le Quiz</button>
+      <div id="quiz-container-6"></div>
     </div>
   </section>
 
-  <!-- ====== MODULE 7 — BOTS DE TRADING ====== -->
-  <section id="module7" class="section">
-    <div class="module-header">
-      <div class="module-badge">MODULE 07</div>
-      <h2 class="module-title">🤖 Bots de Trading</h2>
-      <div class="module-badge-new">NOUVEAU</div>
+  <!-- ======================================================
+       MODULE 7 - Bots de Trading
+  ====================================================== -->
+  <section class="section module-section" id="module-7">
+    <div class="section-header">
+      <div class="section-badge">Module 7</div>
+      <h1 class="section-title">Bots de Trading</h1>
+      <p class="section-subtitle">Automatisez votre trading : fonctionnement des bots, types, plateformes, code Python et backtesting.</p>
     </div>
 
-    <!-- Qu'est-ce qu'un bot -->
-    <div class="visual-block reveal">
-      <h3 class="block-title">🤖 Comment fonctionne un Bot ?</h3>
-      <div class="bot-flow">
-        <div class="bot-step">
-          <div class="bot-icon">📡</div>
-          <div class="bot-label">Données marché</div>
+    <h2 class="content-h2">🤖 Qu'est-ce qu'un Bot de Trading ?</h2>
+    <div class="card">
+      <p>Un <strong>bot de trading</strong> est un programme informatique qui <strong>exécute automatiquement des ordres d'achat et de vente</strong> selon des règles algorithmiques prédéfinies, sans intervention humaine.</p>
+      <p>Les bots analysent en temps réel les données de marché (prix, volume, indicateurs techniques) et prennent des décisions en quelques millisecondes — bien plus rapidement qu'un trader humain.</p>
+
+      <div class="cards-grid" style="margin-top:16px">
+        <div class="card card-sm" style="border-color:rgba(16,185,129,0.3)">
+          <h3 class="card-title" style="color:#10b981">✅ Avantages</h3>
+          <ul>
+            <li><strong>24h/24, 7j/7 :</strong> Ne dort jamais</li>
+            <li><strong>Zéro émotions :</strong> Pas de FOMO, pas de panique</li>
+            <li><strong>Rapidité :</strong> Exécution en millisecondes</li>
+            <li><strong>Backtesting :</strong> Test sur données historiques</li>
+            <li><strong>Multi-marchés :</strong> Gère plusieurs actifs simultanément</li>
+            <li><strong>Consistance :</strong> Applique toujours la même stratégie</li>
+          </ul>
         </div>
-        <div class="bot-arrow animated-arrow">→</div>
-        <div class="bot-step">
-          <div class="bot-icon">🧮</div>
-          <div class="bot-label">Algorithme</div>
-        </div>
-        <div class="bot-arrow animated-arrow">→</div>
-        <div class="bot-step">
-          <div class="bot-icon">⚖️</div>
-          <div class="bot-label">Signal</div>
-        </div>
-        <div class="bot-arrow animated-arrow">→</div>
-        <div class="bot-step active-step">
-          <div class="bot-icon">⚡</div>
-          <div class="bot-label">Ordre auto</div>
-        </div>
-        <div class="bot-arrow animated-arrow">→</div>
-        <div class="bot-step">
-          <div class="bot-icon">💹</div>
-          <div class="bot-label">Exécution</div>
-        </div>
-      </div>
-      <div class="bot-advantages">
-        <div class="adv-card">
-          <div class="adv-icon">⏰</div>
-          <div class="adv-text">24h/24 · 7j/7</div>
-        </div>
-        <div class="adv-card">
-          <div class="adv-icon">😶</div>
-          <div class="adv-text">Sans émotion</div>
-        </div>
-        <div class="adv-card">
-          <div class="adv-icon">⚡</div>
-          <div class="adv-text">Millisecondes</div>
-        </div>
-        <div class="adv-card">
-          <div class="adv-icon">📊</div>
-          <div class="adv-text">Multi-marchés</div>
+        <div class="card card-sm" style="border-color:rgba(239,68,68,0.3)">
+          <h3 class="card-title" style="color:#ef4444">❌ Inconvénients</h3>
+          <ul>
+            <li><strong>Événements imprévus :</strong> Black swan — peut mal réagir</li>
+            <li><strong>Maintenance :</strong> Surveillance et mise à jour régulières</li>
+            <li><strong>Risque technique :</strong> Bugs, pannes serveur</li>
+            <li><strong>Sécurité API :</strong> Risque de piratage des clés</li>
+            <li><strong>Overfitting :</strong> Stratégie optimisée passé ≠ live</li>
+            <li><strong>Coût :</strong> Abonnements, VPS, développement</li>
+          </ul>
         </div>
       </div>
     </div>
 
-    <!-- Types de bots -->
-    <div class="visual-block reveal">
-      <h3 class="block-title">🎭 Types de Bots</h3>
-      <div class="bot-types-grid">
-        <div class="bot-type-card grid-bot">
-          <div class="bot-type-icon">📐</div>
-          <div class="bot-type-name">Grid Bot</div>
-          <svg viewBox="0 0 100 80" width="100" height="80" class="bot-mini-svg">
-            <line x1="0" y1="20" x2="100" y2="20" stroke="#3b82f6" stroke-width="1" stroke-dasharray="4"/>
-            <line x1="0" y1="40" x2="100" y2="40" stroke="#3b82f6" stroke-width="1" stroke-dasharray="4"/>
-            <line x1="0" y1="60" x2="100" y2="60" stroke="#3b82f6" stroke-width="1" stroke-dasharray="4"/>
-            <path d="M10,55 L25,25 L40,45 L55,15 L70,35 L85,20" fill="none" stroke="#10b981" stroke-width="2"/>
-            <circle cx="25" cy="25" r="3" fill="#10b981"/>
-            <circle cx="55" cy="15" r="3" fill="#ef4444"/>
-            <circle cx="40" cy="45" r="3" fill="#10b981"/>
-            <circle cx="70" cy="35" r="3" fill="#ef4444"/>
-          </svg>
-          <div class="bot-type-desc">Achète bas, vend haut dans une fourchette</div>
+    <h2 class="content-h2">📋 Types de Bots de Trading</h2>
+    <div class="card">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Type de Bot</th><th>Description</th><th>Marché Idéal</th><th>Risque</th></tr></thead>
+          <tbody>
+            <tr><td>🏦 Market Making</td><td>Place simultanément achat ET vente, profite du spread bid/ask</td><td>Marchés très liquides</td><td><span class="badge badge-yellow">Moyen</span></td></tr>
+            <tr><td>⚡ Arbitrage</td><td>Exploite différences de prix du même actif sur différents exchanges</td><td>Crypto (multi-exchange)</td><td><span class="badge badge-green">Faible–Moyen</span></td></tr>
+            <tr><td>📈 Trend Following</td><td>Suit la tendance avec indicateurs techniques (MA, RSI, MACD)</td><td>Tous marchés</td><td><span class="badge badge-yellow">Moyen</span></td></tr>
+            <tr><td>🔲 Grid Trading</td><td>Achète/vend à intervalles de prix réguliers (grille)</td><td>Marchés en range</td><td><span class="badge badge-yellow">Moyen</span></td></tr>
+            <tr><td>📅 DCA Bot</td><td>Achète à intervalles réguliers pour moyenner le prix d'achat</td><td>Crypto long terme</td><td><span class="badge badge-green">Faible</span></td></tr>
+            <tr><td>🎯 Sniper Bot</td><td>Achète immédiatement dès qu'un nouveau token est listé</td><td>Nouveaux tokens crypto</td><td><span class="badge badge-red">Très élevé</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h2 class="content-h2">🛠️ Plateformes de Bots de Trading</h2>
+    <div class="cards-grid">
+      <div class="card card-sm">
+        <div style="font-size:28px;margin-bottom:6px">🔧</div>
+        <h3 class="card-title">3Commas</h3>
+        <p style="color:#f59e0b;font-size:12px;margin-bottom:8px">SaaS Cloud · Abonnement mensuel</p>
+        <p>Interface intuitive. Bots DCA et Grid, compatible 20+ exchanges. Marketplace de stratégies copiables.</p>
+        <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px">
+          <span class="badge badge-blue">DCA Bot</span>
+          <span class="badge badge-blue">Grid Bot</span>
+          <span class="badge badge-green">Débutant-friendly</span>
         </div>
-        <div class="bot-type-card dca-bot">
-          <div class="bot-type-icon">📅</div>
-          <div class="bot-type-name">DCA Bot</div>
-          <svg viewBox="0 0 100 80" width="100" height="80" class="bot-mini-svg">
-            <path d="M5,70 L20,55 L35,60 L50,40 L65,45 L80,25 L95,30" fill="none" stroke="#3b82f6" stroke-width="2"/>
-            <circle cx="5" cy="70" r="4" fill="#f59e0b"/>
-            <circle cx="35" cy="60" r="4" fill="#f59e0b"/>
-            <circle cx="65" cy="45" r="4" fill="#f59e0b"/>
-            <circle cx="95" cy="30" r="4" fill="#f59e0b"/>
-            <text x="2" y="78" fill="#f59e0b" font-size="6">Achat</text>
-            <text x="32" y="68" fill="#f59e0b" font-size="6">Achat</text>
-            <text x="62" y="53" fill="#f59e0b" font-size="6">Achat</text>
-          </svg>
-          <div class="bot-type-desc">Investissement régulier pour moyenner le prix</div>
+      </div>
+      <div class="card card-sm">
+        <div style="font-size:28px;margin-bottom:6px">🆓</div>
+        <h3 class="card-title">Pionex</h3>
+        <p style="color:#f59e0b;font-size:12px;margin-bottom:8px">Exchange + 16 bots gratuits intégrés</p>
+        <p>Exchange avec 16 bots de trading intégrés et <strong>gratuits</strong>. Idéal débutants. Tout dans une interface.</p>
+        <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px">
+          <span class="badge badge-green">100% Gratuit</span>
+          <span class="badge badge-green">Parfait débutants</span>
         </div>
-        <div class="bot-type-card arb-bot">
-          <div class="bot-type-icon">⚡</div>
-          <div class="bot-type-name">Arbitrage Bot</div>
-          <svg viewBox="0 0 100 80" width="100" height="80" class="bot-mini-svg">
-            <circle cx="25" cy="40" r="18" fill="none" stroke="#3b82f6" stroke-width="2"/>
-            <circle cx="75" cy="40" r="18" fill="none" stroke="#10b981" stroke-width="2"/>
-            <text x="18" y="36" fill="#3b82f6" font-size="8">Binance</text>
-            <text x="19" y="46" fill="#10b981" font-size="7">100 €</text>
-            <text x="65" y="36" fill="#10b981" font-size="8">Coinbase</text>
-            <text x="66" y="46" fill="#ef4444" font-size="7">101 €</text>
-            <path d="M43,35 L57,30" stroke="#f59e0b" stroke-width="2" marker-end="url(#arr)"/>
-            <path d="M57,50 L43,45" stroke="#f59e0b" stroke-width="2" marker-end="url(#arr)"/>
-            <defs><marker id="arr" markerWidth="4" markerHeight="4" refX="2" refY="2" orient="auto"><path d="M0,0 L4,2 L0,4" fill="#f59e0b"/></marker></defs>
-          </svg>
-          <div class="bot-type-desc">Exploite les différences de prix entre exchanges</div>
+      </div>
+      <div class="card card-sm">
+        <div style="font-size:28px;margin-bottom:6px">☁️</div>
+        <h3 class="card-title">Cryptohopper</h3>
+        <p style="color:#f59e0b;font-size:12px;margin-bottom:8px">SaaS Cloud · Marketplace stratégies</p>
+        <p>Backtesting avancé, paper trading, signaux intégrés. Interface visuelle sans code nécessaire.</p>
+        <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px">
+          <span class="badge badge-blue">Backtesting</span>
+          <span class="badge badge-blue">Paper Trading</span>
         </div>
-        <div class="bot-type-card trend-bot">
-          <div class="bot-type-icon">📈</div>
-          <div class="bot-type-name">Trend Following</div>
-          <svg viewBox="0 0 100 80" width="100" height="80" class="bot-mini-svg">
-            <path d="M5,65 L20,58 L35,50 L50,42 L65,30 L80,20 L95,12" fill="none" stroke="#10b981" stroke-width="2"/>
-            <path d="M5,70 L20,62 L35,54 L50,46 L65,34 L80,24 L95,16" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3"/>
-            <circle cx="60" cy="33" r="6" fill="none" stroke="#10b981" stroke-width="2"/>
-            <text x="52" y="37" fill="#10b981" font-size="6">BUY</text>
-          </svg>
-          <div class="bot-type-desc">Suit la tendance avec indicateurs (MA, RSI)</div>
+      </div>
+      <div class="card card-sm">
+        <div style="font-size:28px;margin-bottom:6px">🔩</div>
+        <h3 class="card-title">Gunbot</h3>
+        <p style="color:#f59e0b;font-size:12px;margin-bottom:8px">Logiciel · Licence unique crypto</p>
+        <p>Très personnalisable, tourne sur votre serveur. Open-source partiel. Pour traders intermédiaires/experts.</p>
+        <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px">
+          <span class="badge badge-yellow">Licence unique</span>
+          <span class="badge badge-yellow">Expert</span>
         </div>
-        <div class="bot-type-card sniper-bot">
-          <div class="bot-type-icon">🎯</div>
-          <div class="bot-type-name">Sniper Bot</div>
-          <svg viewBox="0 0 100 80" width="100" height="80" class="bot-mini-svg">
-            <circle cx="50" cy="40" r="25" fill="none" stroke="#ef4444" stroke-width="1.5"/>
-            <circle cx="50" cy="40" r="15" fill="none" stroke="#ef4444" stroke-width="1"/>
-            <circle cx="50" cy="40" r="5" fill="#ef4444"/>
-            <line x1="50" y1="10" x2="50" y2="70" stroke="#ef4444" stroke-width="1"/>
-            <line x1="20" y1="40" x2="80" y2="40" stroke="#ef4444" stroke-width="1"/>
-            <text x="60" y="20" fill="#ef4444" font-size="6">Listing</text>
-          </svg>
-          <div class="bot-type-desc">Achète au listing d'un nouveau token</div>
-        </div>
-        <div class="bot-type-card mm-bot">
-          <div class="bot-type-icon">🏪</div>
-          <div class="bot-type-name">Market Making</div>
-          <svg viewBox="0 0 100 80" width="100" height="80" class="bot-mini-svg">
-            <rect x="10" y="30" width="25" height="15" rx="3" fill="#10b981" opacity="0.8"/>
-            <text x="15" y="42" fill="white" font-size="7">BID</text>
-            <rect x="65" y="30" width="25" height="15" rx="3" fill="#ef4444" opacity="0.8"/>
-            <text x="71" y="42" fill="white" font-size="7">ASK</text>
-            <line x1="35" y1="37" x2="65" y2="37" stroke="#f59e0b" stroke-width="2" stroke-dasharray="3"/>
-            <text x="42" y="33" fill="#f59e0b" font-size="6">Spread</text>
-            <rect x="10" y="50" width="20" height="8" rx="2" fill="#10b981" opacity="0.5"/>
-            <rect x="35" y="50" width="15" height="8" rx="2" fill="#10b981" opacity="0.5"/>
-            <rect x="55" y="50" width="20" height="8" rx="2" fill="#ef4444" opacity="0.5"/>
-            <rect x="79" y="50" width="12" height="8" rx="2" fill="#ef4444" opacity="0.5"/>
-          </svg>
-          <div class="bot-type-desc">Fournit liquidité en posant Bid & Ask</div>
+      </div>
+      <div class="card card-sm">
+        <div style="font-size:28px;margin-bottom:6px">🐍</div>
+        <h3 class="card-title">Freqtrade</h3>
+        <p style="color:#f59e0b;font-size:12px;margin-bottom:8px">Open Source Python · 100% Gratuit</p>
+        <p>Gratuit et open source, en Python. Backtesting très puissant, hyperoptimisation. Nécessite connaissances techniques.</p>
+        <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px">
+          <span class="badge badge-green">100% Gratuit</span>
+          <span class="badge badge-green">Open Source</span>
+          <span class="badge badge-yellow">Python</span>
         </div>
       </div>
     </div>
 
-    <!-- Plateformes -->
-    <div class="visual-block reveal">
-      <h3 class="block-title">🛠️ Plateformes Populaires</h3>
-      <div class="platforms-grid">
-        <div class="platform-card">
-          <div class="platform-icon">🔺</div>
-          <div class="platform-name">3Commas</div>
-          <div class="platform-tags">
-            <span class="ptag">DCA</span><span class="ptag">Grid</span><span class="ptag">Smart Trade</span>
-          </div>
-          <div class="platform-level beginner">⭐ Débutant</div>
+    <h2 class="content-h2">💻 Exemple de Code Python — Croisement de Moyennes Mobiles</h2>
+    <div class="card">
+      <p>Voici un exemple de bot Python utilisant la stratégie Golden Cross / Death Cross :</p>
+      <div class="code-block">
+        <div class="code-header">
+          <div class="code-dots"><span></span><span></span><span></span></div>
+          <div class="code-filename">bot_ma_crossover.py — Python</div>
         </div>
-        <div class="platform-card">
-          <div class="platform-icon">🐦</div>
-          <div class="platform-name">Pionex</div>
-          <div class="platform-tags">
-            <span class="ptag">Grid gratuit</span><span class="ptag">DCA</span>
-          </div>
-          <div class="platform-level beginner">⭐ Débutant</div>
-        </div>
-        <div class="platform-card">
-          <div class="platform-icon">🌿</div>
-          <div class="platform-name">Cryptohopper</div>
-          <div class="platform-tags">
-            <span class="ptag">Signaux</span><span class="ptag">Marketplace</span>
-          </div>
-          <div class="platform-level intermediate">⭐⭐ Intermédiaire</div>
-        </div>
-        <div class="platform-card">
-          <div class="platform-icon">🔫</div>
-          <div class="platform-name">Gunbot</div>
-          <div class="platform-tags">
-            <span class="ptag">On-premise</span><span class="ptag">Avancé</span>
-          </div>
-          <div class="platform-level advanced">⭐⭐⭐ Avancé</div>
-        </div>
-        <div class="platform-card open-source">
-          <div class="platform-icon">🐍</div>
-          <div class="platform-name">Freqtrade</div>
-          <div class="platform-tags">
-            <span class="ptag">Open Source</span><span class="ptag">Python</span><span class="ptag">Gratuit</span>
-          </div>
-          <div class="platform-level advanced">⭐⭐⭐ Expert</div>
-        </div>
-        <div class="platform-card open-source">
-          <div class="platform-icon">🦅</div>
-          <div class="platform-name">Hummingbot</div>
-          <div class="platform-tags">
-            <span class="ptag">Market Making</span><span class="ptag">Arbitrage</span>
-          </div>
-          <div class="platform-level advanced">⭐⭐⭐ Expert</div>
-        </div>
+        <pre class="code-body"><span class="c"># Exemple de bot simple - Stratégie Croisement de Moyennes Mobiles</span>
+<span class="kw">import</span> trading_api <span class="kw">as</span> api
+
+<span class="kw">def</span> <span class="fn">calculate_ma</span>(prices, period):
+    <span class="kw">return</span> <span class="fn">sum</span>(prices[-period:]) / period
+
+<span class="kw">def</span> <span class="fn">run_bot</span>():
+    capital = <span class="num">1000</span>  <span class="c"># €</span>
+    risk_per_trade = <span class="num">0.02</span>  <span class="c"># 2%</span>
+
+    <span class="kw">while</span> <span class="kw">True</span>:
+        <span class="c"># Récupérer les données de prix</span>
+        prices = api.<span class="fn">get_prices</span>(<span class="str">'BTC/USDT'</span>, timeframe=<span class="str">'1h'</span>, limit=<span class="num">200</span>)
+
+        <span class="c"># Calculer les moyennes mobiles</span>
+        ma_20 = <span class="fn">calculate_ma</span>(prices, <span class="num">20</span>)
+        ma_50 = <span class="fn">calculate_ma</span>(prices, <span class="num">50</span>)
+        current_price = prices[-<span class="num">1</span>]
+
+        <span class="c"># Signal d'achat: MA20 croise MA50 vers le haut (Golden Cross)</span>
+        <span class="kw">if</span> ma_20 &gt; ma_50 <span class="kw">and not</span> api.<span class="fn">has_position</span>():
+            position_size = (capital * risk_per_trade) / current_price
+            api.<span class="fn">buy</span>(symbol=<span class="str">'BTC/USDT'</span>, amount=position_size)
+            stop_loss   = current_price * <span class="num">0.98</span>  <span class="c"># -2%</span>
+            take_profit = current_price * <span class="num">1.04</span>  <span class="c"># +4% (R/R 1:2)</span>
+            api.<span class="fn">set_stop_loss</span>(stop_loss)
+            api.<span class="fn">set_take_profit</span>(take_profit)
+            <span class="fn">print</span>(<span class="str">f"ACHAT: {position_size:.6f} BTC @ {current_price} €"</span>)
+
+        <span class="c"># Signal de vente: MA20 croise MA50 vers le bas (Death Cross)</span>
+        <span class="kw">elif</span> ma_20 &lt; ma_50 <span class="kw">and</span> api.<span class="fn">has_position</span>():
+            api.<span class="fn">sell_all</span>(<span class="str">'BTC/USDT'</span>)
+            <span class="fn">print</span>(<span class="str">f"VENTE @ {current_price} €"</span>)
+
+        api.<span class="fn">wait</span>(<span class="num">3600</span>)  <span class="c"># Attendre 1 heure</span>
+
+<span class="fn">run_bot</span>()</pre>
+      </div>
+      <div class="box box-info" style="margin-top:12px">
+        <div class="box-icon">ℹ️</div>
+        <div>Ce bot vérifie toutes les heures si MA20 &gt; MA50 (Golden Cross → achat) ou MA20 &lt; MA50 (Death Cross → vente). La taille de position est calculée pour ne risquer que 2% du capital avec un ratio R/R de 1:2.</div>
       </div>
     </div>
 
-    <!-- Backtesting -->
-    <div class="visual-block reveal">
-      <h3 class="block-title">🔬 Backtesting — Tester avant de risquer</h3>
-      <div class="backtest-flow">
-        <div class="bt-step">
-          <div class="bt-icon">📜</div>
-          <div class="bt-label">Stratégie</div>
-        </div>
-        <div class="bt-arrow">→</div>
-        <div class="bt-step">
-          <div class="bt-icon">📅</div>
-          <div class="bt-label">Données historiques</div>
-        </div>
-        <div class="bt-arrow">→</div>
-        <div class="bt-step">
-          <div class="bt-icon">⚙️</div>
-          <div class="bt-label">Simulation</div>
-        </div>
-        <div class="bt-arrow">→</div>
-        <div class="bt-step">
-          <div class="bt-icon">📊</div>
-          <div class="bt-label">Résultats</div>
-        </div>
-        <div class="bt-arrow">→</div>
-        <div class="bt-step active-step">
-          <div class="bt-icon">🚀</div>
-          <div class="bt-label">Live Trading</div>
-        </div>
+    <h2 class="content-h2">🧪 Le Backtesting</h2>
+    <div class="card">
+      <p>Le <strong>backtesting</strong> est le test d'une stratégie sur des données historiques avant de risquer du capital réel.</p>
+      <div class="steps-list">
+        <div class="step-item"><div class="step-num">1</div><div><strong>Définir la stratégie :</strong> Règles précises d'entrée, sortie, SL, TP, taille de position</div></div>
+        <div class="step-item"><div class="step-num">2</div><div><strong>Obtenir les données historiques :</strong> Prix OHLCV (Open, High, Low, Close, Volume)</div></div>
+        <div class="step-item"><div class="step-num">3</div><div><strong>Simuler les trades :</strong> Appliquer la stratégie sur le passé en respectant les frais réels</div></div>
+        <div class="step-item"><div class="step-num">4</div><div><strong>Analyser les résultats :</strong> Win rate, profit factor, Sharpe ratio, drawdown maximum</div></div>
+        <div class="step-item"><div class="step-num">5</div><div><strong>Walk-Forward Testing :</strong> Valider sur une période "hors échantillon" pour confirmer la robustesse</div></div>
       </div>
-      <div class="warning-box">
-        ⚠️ <strong>Overfitting</strong> : Une stratégie parfaite sur le passé n'est pas forcément bonne sur le futur
+      <div class="table-wrap" style="margin-top:16px">
+        <table>
+          <thead><tr><th>Métrique</th><th>Définition</th><th>Valeur Cible</th></tr></thead>
+          <tbody>
+            <tr><td>Win Rate</td><td>% de trades gagnants</td><td>&gt;40% (selon R/R)</td></tr>
+            <tr><td>Profit Factor</td><td>Total gains / Total pertes</td><td>&gt;1.5</td></tr>
+            <tr><td>Sharpe Ratio</td><td>Rendement ajusté au risque</td><td>&gt;1.0</td></tr>
+            <tr><td>Max Drawdown</td><td>Plus grande chute du capital</td><td>&lt;20%</td></tr>
+            <tr><td>Expectancy</td><td>Gain moyen par trade</td><td>&gt;0</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
-    <!-- Risques des bots -->
-    <div class="visual-block reveal">
-      <h3 class="block-title">⚠️ Risques à Connaître</h3>
-      <div class="risks-grid">
-        <div class="risk-item">
-          <div class="risk-emoji">🔌</div>
-          <div class="risk-name">Panne technique</div>
-        </div>
-        <div class="risk-item">
-          <div class="risk-emoji">📉</div>
-          <div class="risk-name">Flash Crash</div>
-        </div>
-        <div class="risk-item">
-          <div class="risk-emoji">🎯</div>
-          <div class="risk-name">Overfitting</div>
-        </div>
-        <div class="risk-item">
-          <div class="risk-emoji">💱</div>
-          <div class="risk-name">Slippage</div>
-        </div>
-        <div class="risk-item">
-          <div class="risk-emoji">🔑</div>
-          <div class="risk-name">Sécurité API</div>
-        </div>
-        <div class="risk-item">
-          <div class="risk-emoji">📊</div>
-          <div class="risk-name">Mauvais paramètres</div>
-        </div>
+    <h2 class="content-h2">⚠️ Risques Spécifiques aux Bots</h2>
+    <div class="cards-grid">
+      <div class="card card-sm"><div style="font-size:28px;margin-bottom:6px">🔄</div><h3 class="card-title">Overfitting</h3><p>Stratégie trop optimisée sur le passé qui ne se généralise pas en live. Le "curve fitting" donne de faux espoirs.</p></div>
+      <div class="card card-sm"><div style="font-size:28px;margin-bottom:6px">📉</div><h3 class="card-title">Slippage</h3><p>Différence entre le prix prévu par le bot et le prix réellement exécuté. Peut réduire significativement la rentabilité.</p></div>
+      <div class="card card-sm"><div style="font-size:28px;margin-bottom:6px">⚡</div><h3 class="card-title">Pannes Techniques</h3><p>Panne serveur, coupure internet, bug de l'exchange. Une position ouverte sans surveillance peut virer au désastre.</p></div>
+      <div class="card card-sm"><div style="font-size:28px;margin-bottom:6px">🔑</div><h3 class="card-title">Sécurité API</h3><p>Clés API volées = accès à votre compte. N'activez jamais la permission de retrait sur les clés API de vos bots.</p></div>
+    </div>
+    <div class="box box-danger">
+      <div class="box-icon">⛔</div>
+      <div>
+        <strong>Règles de sécurité API :</strong><br>
+        1. N'accordez <strong>jamais la permission de retrait</strong> aux clés API d'un bot<br>
+        2. Utilisez des <strong>restrictions IP</strong> (whitelist votre IP serveur uniquement)<br>
+        3. Stockez les clés dans des <strong>variables d'environnement</strong>, jamais en dur dans le code<br>
+        4. Régénérez vos clés régulièrement et utilisez un compte dédié aux bots
       </div>
     </div>
 
-    <!-- Quiz Module 7 -->
-    <div class="quiz-block reveal" id="quiz7">
-      <div class="quiz-header">🎯 Quiz — Module 7</div>
-      <div class="quiz-questions" id="q7"></div>
+    <div class="quiz-section">
+      <div class="quiz-header-row">
+        <span class="quiz-badge">🎓 Quiz</span>
+        <h3>Module 7 — Bots de Trading</h3>
+      </div>
+      <button class="btn-quiz-start" onclick="startQuiz(7)">🚀 Commencer le Quiz</button>
+      <div id="quiz-container-7"></div>
     </div>
   </section>
 
-  <!-- ====== MODULE 8 — GLOSSAIRE ====== -->
-  <section id="module8" class="section">
-    <div class="module-header">
-      <div class="module-badge">MODULE 08</div>
-      <h2 class="module-title">📖 Glossaire du Trading</h2>
+  <!-- ======================================================
+       MODULE 8 - Glossaire
+  ====================================================== -->
+  <section class="section module-section" id="module-8">
+    <div class="section-header">
+      <div class="section-badge">Module 8</div>
+      <h1 class="section-title">Glossaire du Trading</h1>
+      <p class="section-subtitle">Plus de 60 termes essentiels définis en français. Recherchez instantanément n'importe quel terme.</p>
     </div>
 
-    <div class="visual-block reveal">
-      <div class="glossary-search">
-        <input type="text" id="gloss-search" placeholder="🔍 Rechercher un terme..." oninput="filterGlossary(this.value)">
+    <div class="glossary-search-wrap">
+      <span class="glossary-icon">🔍</span>
+      <input type="text" id="glossaryInput" class="glossary-input" placeholder="Rechercher un terme (ex: RSI, levier, spread, FOMO…)" oninput="filterGlossary()">
+    </div>
+    <div class="glossary-count" id="glossaryCount">Affichage de <strong>61</strong> termes sur 61</div>
+
+    <div class="glossary-grid" id="glossaryGrid">
+      <div class="g-item" data-term="actif"><div class="g-term">📌 Actif</div><div class="g-def">Instrument financier pouvant être acheté ou vendu : action, devise, crypto, matière première, obligation, etc.</div></div>
+      <div class="g-item" data-term="analyse technique">
+        <div class="g-term">📊 Analyse Technique</div><div class="g-def">Méthode d'analyse basée sur l'étude des graphiques de prix, volumes et indicateurs pour prévoir les mouvements futurs.</div></div>
+      <div class="g-item" data-term="analyse fondamentale"><div class="g-term">🔍 Analyse Fondamentale</div><div class="g-def">Méthode basée sur les données économiques, financières et qualitatives pour déterminer la valeur intrinsèque d'un actif.</div></div>
+      <div class="g-item" data-term="arbitrage"><div class="g-term">⚡ Arbitrage</div><div class="g-def">Stratégie consistant à profiter simultanément des différences de prix du même actif sur différents marchés ou exchanges.</div></div>
+      <div class="g-item" data-term="ask offre"><div class="g-term">💬 Ask (Offre)</div><div class="g-def">Prix auquel un vendeur accepte de vendre. C'est le prix que vous payez lorsque vous achetez. Toujours supérieur au Bid.</div></div>
+      <div class="g-item" data-term="backtesting"><div class="g-term">🧪 Backtesting</div><div class="g-def">Simulation d'une stratégie sur données historiques pour évaluer ses performances passées avant de la déployer en réel.</div></div>
+      <div class="g-item" data-term="bear market baissier"><div class="g-term">🐻 Bear Market</div><div class="g-def">Marché baissier : période prolongée de baisse des prix (&gt;20% depuis un sommet). L'ours symbolise la tendance baissière.</div></div>
+      <div class="g-item" data-term="bid demande"><div class="g-term">💰 Bid (Demande)</div><div class="g-def">Prix auquel un acheteur est prêt à acheter. C'est le prix que vous recevez lorsque vous vendez. Toujours inférieur à l'Ask.</div></div>
+      <div class="g-item" data-term="blockchain chaîne blocs"><div class="g-term">⛓️ Blockchain</div><div class="g-def">Base de données décentralisée et distribuée qui enregistre les transactions de manière immuable et transparente.</div></div>
+      <div class="g-item" data-term="bot trading robot"><div class="g-term">🤖 Bot de Trading</div><div class="g-def">Programme automatisé qui exécute des ordres d'achat et de vente selon des règles algorithmiques prédéfinies, sans intervention humaine.</div></div>
+      <div class="g-item" data-term="bougie japonaise chandelier candlestick"><div class="g-term">🕯️ Bougie Japonaise</div><div class="g-def">Représentation graphique du prix affichant ouverture, clôture, plus haut et plus bas sur une période. Base de l'analyse technique.</div></div>
+      <div class="g-item" data-term="bull market haussier"><div class="g-term">🐂 Bull Market</div><div class="g-def">Marché haussier : période prolongée de hausse des prix. Le taureau symbolise la tendance haussière et l'optimisme des investisseurs.</div></div>
+      <div class="g-item" data-term="capital"><div class="g-term">💵 Capital</div><div class="g-def">Somme totale d'argent disponible pour le trading. La gestion du capital est la compétence la plus importante pour la survie à long terme.</div></div>
+      <div class="g-item" data-term="cfd contract difference"><div class="g-term">📑 CFD</div><div class="g-def">Contract For Difference : contrat dérivé permettant de spéculer sur la variation de prix d'un actif sans le posséder réellement. Permet le levier.</div></div>
+      <div class="g-item" data-term="crypto cryptomonnaie bitcoin ethereum"><div class="g-term">₿ Crypto-monnaie</div><div class="g-def">Monnaie numérique décentralisée utilisant la cryptographie. Ex : Bitcoin (BTC), Ethereum (ETH), Solana (SOL).</div></div>
+      <div class="g-item" data-term="day trading intraday"><div class="g-term">⚡ Day Trading</div><div class="g-def">Style où toutes les positions sont ouvertes ET fermées dans la même journée. Aucune position gardée overnight.</div></div>
+      <div class="g-item" data-term="décorrélation corrélation"><div class="g-term">🔀 Décorrélation</div><div class="g-def">Propriété de deux actifs qui ne bougent pas dans la même direction. Une vraie diversification repose sur des actifs décorrélés.</div></div>
+      <div class="g-item" data-term="diversification portefeuille"><div class="g-term">🌐 Diversification</div><div class="g-def">Répartition du capital sur plusieurs actifs non corrélés pour réduire le risque global sans sacrifier les rendements.</div></div>
+      <div class="g-item" data-term="drawdown chute"><div class="g-term">📉 Drawdown</div><div class="g-def">Chute maximale du capital entre un pic et un creux. Le drawdown maximum est un indicateur clé du risque d'une stratégie.</div></div>
+      <div class="g-item" data-term="etf fonds indiciel"><div class="g-term">📦 ETF</div><div class="g-def">Exchange-Traded Fund : fonds d'investissement coté en bourse qui suit la performance d'un indice (ex : CAC 40 ETF).</div></div>
+      <div class="g-item" data-term="exchange plateforme bourse"><div class="g-term">🏪 Exchange</div><div class="g-def">Plateforme d'échange d'actifs financiers. Crypto : Binance, Coinbase, Kraken. Actions : NYSE, Euronext, Nasdaq.</div></div>
+      <div class="g-item" data-term="fomo fear missing out peur"><div class="g-term">😱 FOMO</div><div class="g-def">Fear Of Missing Out : peur de manquer une opportunité. Pousse les traders à entrer précipitamment sans analyse, souvent au pire moment.</div></div>
+      <div class="g-item" data-term="forex devises changes marché"><div class="g-term">💱 Forex</div><div class="g-def">Foreign Exchange : marché mondial d'échange de devises. Plus grand marché financier (~6 500 Mds $/jour). Ouvert 24h/24, 5j/7.</div></div>
+      <div class="g-item" data-term="futures contrats terme"><div class="g-term">📅 Futures</div><div class="g-def">Contrats standardisés pour acheter/vendre un actif à un prix et une date futurs fixés à l'avance. Utilisés pour se couvrir ou spéculer.</div></div>
+      <div class="g-item" data-term="gap écart prix"><div class="g-term">🕳️ Gap</div><div class="g-def">Écart de prix entre la clôture d'une session et l'ouverture de la suivante. Se produit souvent après des annonces importantes ou le weekend.</div></div>
+      <div class="g-item" data-term="hedge couverture protection"><div class="g-term">🛡️ Hedge</div><div class="g-def">Couverture : stratégie visant à réduire le risque d'une position en prenant une position compensatrice opposée.</div></div>
+      <div class="g-item" data-term="ichimoku nuage indicateur"><div class="g-term">☁️ Ichimoku</div><div class="g-def">Indicateur japonais complexe affichant support, résistance, direction et momentum. Inclut le "nuage" (Kumo) caractéristique.</div></div>
+      <div class="g-item" data-term="indicateur technique rsi macd"><div class="g-term">📐 Indicateur Technique</div><div class="g-def">Calcul mathématique sur prix/volume pour identifier tendances, momentum et points d'entrée/sortie. Ex : RSI, MACD, Bollinger.</div></div>
+      <div class="g-item" data-term="levier leverage"><div class="g-term">⚖️ Levier</div><div class="g-def">Mécanisme permettant de contrôler une position plus grande que son capital (ex : x10 → 1 000 € contrôle 10 000 €). Amplifie gains ET pertes.</div></div>
+      <div class="g-item" data-term="liquidation appel marge"><div class="g-term">💥 Liquidation</div><div class="g-def">Fermeture forcée d'une position par le broker lorsque les pertes atteignent le capital de marge. Résulte d'un levier excessif.</div></div>
+      <div class="g-item" data-term="liquidité marché"><div class="g-term">💧 Liquidité</div><div class="g-def">Facilité avec laquelle un actif peut être acheté/vendu sans impacter son prix. Un marché liquide a beaucoup d'acheteurs et vendeurs.</div></div>
+      <div class="g-item" data-term="lot forex unité"><div class="g-term">📦 Lot</div><div class="g-def">Unité de mesure en Forex. 1 lot standard = 100 000 unités de la devise de base. Mini = 10 000. Micro = 1 000.</div></div>
+      <div class="g-item" data-term="marge dépôt garantie"><div class="g-term">📋 Marge</div><div class="g-def">Dépôt de garantie exigé par le broker pour ouvrir une position avec levier. La marge requise diminue quand le levier augmente.</div></div>
+      <div class="g-item" data-term="market cap capitalisation boursière"><div class="g-term">💎 Market Cap</div><div class="g-def">Capitalisation boursière : prix × nombre d'unités en circulation. Mesure la taille d'une entreprise ou d'une cryptomonnaie.</div></div>
+      <div class="g-item" data-term="market maker teneur marché liquidité"><div class="g-term">🏦 Market Maker</div><div class="g-def">Acteur fournissant la liquidité en affichant en permanence des prix bid et ask. Gagne le spread et assure le fonctionnement du marché.</div></div>
+      <div class="g-item" data-term="momentum force tendance"><div class="g-term">🚀 Momentum</div><div class="g-def">Force ou vitesse d'un mouvement de prix. Fort momentum haussier = tendance solide. Indicateurs : RSI, MACD, Stochastique.</div></div>
+      <div class="g-item" data-term="nfp non-farm payrolls emploi américain"><div class="g-term">👷 NFP</div><div class="g-def">Non-Farm Payrolls : rapport mensuel américain sur l'emploi hors agriculture. 1er vendredi du mois. Fort impact sur tous les marchés.</div></div>
+      <div class="g-item" data-term="ordre limit limité prix"><div class="g-term">🎯 Ordre Limit</div><div class="g-def">Ordre exécuté uniquement au prix spécifié ou meilleur. Garantit le prix mais pas l'exécution si le marché ne l'atteint pas.</div></div>
+      <div class="g-item" data-term="ordre market marché immédiat"><div class="g-term">⚡ Ordre Market</div><div class="g-def">Ordre exécuté immédiatement au meilleur prix disponible. Garantit l'exécution mais pas le prix. Peut entraîner du slippage.</div></div>
+      <div class="g-item" data-term="ordre stop déclenchement"><div class="g-term">🛑 Ordre Stop</div><div class="g-def">Ordre déclenché quand le prix atteint un niveau prédéfini, puis devient un ordre market. Utilisé pour stop-loss et entrées sur cassure.</div></div>
+      <div class="g-item" data-term="position long short"><div class="g-term">📊 Position</div><div class="g-def">Exposition à un actif. Long = pari à la hausse. Short = pari à la baisse. Taille de position = quantité détenue.</div></div>
+      <div class="g-item" data-term="prime risque rendement"><div class="g-term">⚠️ Prime de Risque</div><div class="g-def">Rendement supplémentaire exigé par les investisseurs pour compenser le risque pris par rapport à un actif sans risque.</div></div>
+      <div class="g-item" data-term="ratio rr risque récompense"><div class="g-term">⚖️ Ratio R/R</div><div class="g-def">Rapport risque maximal / gain potentiel d'un trade. Ex : 1:2 = risquer 100 € pour gagner 200 €. Minimum recommandé : 1:2.</div></div>
+      <div class="g-item" data-term="résistance niveau prix blocage"><div class="g-term">🔴 Résistance</div><div class="g-def">Niveau de prix où l'offre de vente est forte et stoppe les hausses. Le prix a du mal à dépasser ce niveau historiquement.</div></div>
+      <div class="g-item" data-term="rsi relative strength index oscillateur"><div class="g-term">💪 RSI</div><div class="g-def">Relative Strength Index : oscillateur 0–100 mesurant la vitesse des mouvements. &gt;70 = suracheté. &lt;30 = survendu. Période : 14.</div></div>
+      <div class="g-item" data-term="scalping court terme rapide"><div class="g-term">⚡ Scalping</div><div class="g-def">Style très court terme (secondes à minutes) accumulant de nombreux petits profits. Nécessite connexion rapide et grande expérience.</div></div>
+      <div class="g-item" data-term="short selling vente découvert baisse"><div class="g-term">📉 Short Selling</div><div class="g-def">Vendre un actif non possédé (emprunté) en pariant sur sa baisse. Profit si le prix baisse. Risque théoriquement illimité à la hausse.</div></div>
+      <div class="g-item" data-term="slippage glissement prix"><div class="g-term">🌊 Slippage</div><div class="g-def">Différence entre le prix prévu et le prix réel d'exécution. Se produit lors de forte volatilité ou en marché peu liquide. Coût caché.</div></div>
+      <div class="g-item" data-term="spread écart bid ask"><div class="g-term">↔️ Spread</div><div class="g-def">Différence entre Ask et Bid. Coût implicite de chaque transaction et principale rémunération du broker/market maker.</div></div>
+      <div class="g-item" data-term="stop-loss sl protection perte"><div class="g-term">🛑 Stop-Loss (SL)</div><div class="g-def">Ordre conditionnel fermant automatiquement une position en perte quand le prix atteint un niveau prédéfini. Protection du capital indispensable.</div></div>
+      <div class="g-item" data-term="support niveau rebond demande"><div class="g-term">🟢 Support</div><div class="g-def">Niveau de prix où la demande d'achat est forte et stoppe les baisses. Zone où le prix rebondit historiquement.</div></div>
+      <div class="g-item" data-term="swing trading moyen terme jours semaines"><div class="g-term">🌊 Swing Trading</div><div class="g-def">Style moyen terme (jours à semaines) capturant les oscillations de prix. Idéal pour les traders particuliers ayant un emploi.</div></div>
+      <div class="g-item" data-term="take-profit tp profit objectif"><div class="g-term">✅ Take-Profit (TP)</div><div class="g-def">Ordre fermant automatiquement une position en profit à un niveau cible. Permet de sécuriser les gains sans surveillance constante.</div></div>
+      <div class="g-item" data-term="token jeton numérique crypto"><div class="g-term">🪙 Token</div><div class="g-def">Actif numérique émis sur une blockchain existante (ex : ERC-20 sur Ethereum). Distinct d'une "coin" qui est la monnaie native d'une blockchain.</div></div>
+      <div class="g-item" data-term="tokenomics économie token offre demande"><div class="g-term">📊 Tokenomics</div><div class="g-def">Économie d'un token : offre totale, distribution, mécanismes de burn, vesting, utilité. Critère fondamental d'évaluation d'un projet crypto.</div></div>
+      <div class="g-item" data-term="volatilité variation prix amplitude"><div class="g-term">🌡️ Volatilité</div><div class="g-def">Amplitude des variations de prix. Forte volatilité = grandes fluctuations. Mesurée par l'ATR ou les Bandes de Bollinger.</div></div>
+      <div class="g-item" data-term="volume échanges quantité"><div class="g-term">📊 Volume</div><div class="g-def">Quantité d'actifs échangés sur une période. Mouvement de prix + fort volume = signal plus significatif qu'à faible volume.</div></div>
+      <div class="g-item" data-term="wallet portefeuille crypto clé"><div class="g-term">👛 Wallet</div><div class="g-def">Application ou dispositif stockant les clés cryptographiques pour accéder aux crypto-monnaies. Hot wallet (en ligne) vs Cold wallet (hardware).</div></div>
+      <div class="g-item" data-term="whitepaper livre blanc projet crypto"><div class="g-term">📄 Whitepaper</div><div class="g-def">Document fondateur d'un projet crypto : problème résolu, technologie, équipe, roadmap, modèle économique. Lecture indispensable avant d'investir.</div></div>
+      <div class="g-item" data-term="déficit perte solde négatif"><div class="g-term">📉 Déficit</div><div class="g-def">Solde négatif d'un compte — dépenses supérieures aux revenus. En trading, les pertes dépassent le capital investi.</div></div>
+      <div class="g-item" data-term="position trading long terme mois années"><div class="g-term">🏔️ Position Trading</div><div class="g-def">Style long terme (mois à années) basé principalement sur l'analyse fondamentale. Proche de l'investissement traditionnel.</div></div>
+    </div>
+
+    <div class="quiz-section">
+      <div class="quiz-header-row">
+        <span class="quiz-badge">🎓 Quiz Final</span>
+        <h3>Module 8 — Quiz de Clôture</h3>
       </div>
-      <div class="glossary-grid" id="glossary-grid"></div>
+      <button class="btn-quiz-start" onclick="startQuiz(8)">🚀 Commencer le Quiz Final</button>
+      <div id="quiz-container-8"></div>
     </div>
-  </section>
 
-  <!-- ====== CERTIFICATE ====== -->
-  <section id="certificate" class="section cert-section" style="display:none">
-    <div class="cert-card">
-      <div class="cert-emoji">🏆</div>
-      <div class="cert-title">Félicitations !</div>
-      <div class="cert-text">Tu as complété <strong>TradingAcademy Pro</strong></div>
-      <div class="cert-badge">Expert Certifié</div>
-      <div class="cert-stars">⭐⭐⭐⭐⭐</div>
-      <button class="cta-btn" onclick="goTo('hero')">Recommencer</button>
+    <!-- Certificate -->
+    <div id="certificateWrap" style="display:none;margin-top:40px">
+      <div class="certificate">
+        <div class="cert-stars">★ ★ ★ ★ ★</div>
+        <div class="cert-subtitle">Certificat d'Achèvement</div>
+        <div class="cert-title">TradingAcademy Pro</div>
+        <div class="cert-name">Formation Trading Complète — A à Z</div>
+        <p class="cert-text">Ce certificat atteste que vous avez complété avec succès la formation complète en trading, couvrant les bases, l'analyse technique &amp; fondamentale, la gestion du risque, la psychologie du trading et les bots de trading automatisés.</p>
+        <div class="cert-stars" style="font-size:20px;margin:12px 0">✦ ✦ ✦</div>
+        <div class="cert-date">Délivré le <span id="certDate"></span> · TradingAcademy Pro</div>
+      </div>
     </div>
   </section>
 
 </main>
 
-<!-- ====== MODAL INDICATEUR ====== -->
-<div class="modal-overlay" id="modal-overlay" onclick="closeModal()">
-  <div class="modal-box" onclick="event.stopPropagation()">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <div id="modal-content"></div>
-  </div>
-</div>
-
-<!-- ====== PROGRESS FLOAT ====== -->
-<div class="progress-float" id="progress-float">
-  <div class="pf-bar" id="pf-bar"></div>
-  <span id="pf-pct">0%</span>
+<!-- Floating progress widget -->
+<div class="floating-widget" id="floatingWidget">
+  <div class="fw-label">Progression</div>
+  <div class="fw-pct" id="floatingPct">0%</div>
+  <div class="fw-bar"><div class="fw-fill" id="floatingFill" style="width:0%"></div></div>
+  <div class="fw-modules" id="floatingModules">0 / 8 modules</div>
 </div>
 
 <script src="app.js"></script>
