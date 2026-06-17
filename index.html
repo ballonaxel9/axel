@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TradingAcademy Pro — Apprends le Trading de A à Z</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ========= SIDEBAR ========= -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-icon">📈</div>
+    <span>TradingPro</span>
+  </div>
+  <div class="sidebar-progress">
+    <div class="progress-label">Progression globale</div>
+    <div class="progress-bar-outer">
+      <div class="progress-bar-inner" id="global-progress" style="width:0%"></div>
+    </div>
+    <span class="progress-pct" id="global-pct">0%</span>
+  </div>
+  <ul class="nav-modules">
+    <li class="nav-item active" onclick="goTo('hero')">
+      <span class="nav-icon">🏠</span><span>Accueil</span>
+    </li>
+    <li class="nav-item" onclick="goTo('module1')">
+      <span class="nav-icon">📚</span><span>Les Bases</span>
+      <div class="nav-dot" id="dot1"></div>
+    </li>
+    <li class="nav-item" onclick="goTo('module2')">
+      <span class="nav-icon">⚡</span><span>Types de Trading</span>
+      <div class="nav-dot" id="dot2"></div>
+    </li>
+    <li class="nav-item" onclick="goTo('module3')">
+      <span class="nav-icon">📊</span><span>Analyse Technique</span>
+      <div class="nav-dot" id="dot3"></div>
+    </li>
+    <li class="nav-item" onclick="goTo('module4')">
+      <span class="nav-icon">🔍</span><span>Analyse Fondamentale</span>
+      <div class="nav-dot" id="dot4"></div>
+    </li>
+    <li class="nav-item" onclick="goTo('module5')">
+      <span class="nav-icon">🛡️</span><span>Gestion du Risque</span>
+      <div class="nav-dot" id="dot5"></div>
+    </li>
+    <li class="nav-item" onclick="goTo('module6')">
+      <span class="nav-icon">🧠</span><span>Psychologie</span>
+      <div class="nav-dot" id="dot6"></div>
+    </li>
+    <li class="nav-item" onclick="goTo('module7')">
+      <span class="nav-icon">🤖</span><span>Bots de Trading</span>
+      <div class="nav-dot" id="dot7"></div>
+    </li>
+    <li class="nav-item" onclick="goTo('module8')">
+      <span class="nav-icon">📖</span><span>Glossaire</span>
+      <div class="nav-dot" id="dot8"></div>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="trophy" id="trophy" style="display:none">🏆 Expert Complété!</div>
+  </div>
+</nav>
+
+<!-- ========= HAMBURGER ========= -->
+<button class="hamburger" id="hamburger" onclick="toggleSidebar()">☰</button>
+
+<!-- ========= MAIN ========= -->
+<main class="main-content" id="main">
+
+  <!-- ====== HERO ====== -->
+  <section id="hero" class="section hero-section">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-content">
+      <div class="hero-badge animate-fade-in">🚀 Formation Complète</div>
+      <h1 class="hero-title animate-slide-up">
+        Apprends le<br>
+        <span class="gradient-text">Trading</span><br>
+        de A à Z
+      </h1>
+      <p class="hero-subtitle animate-fade-in-delay">8 modules · Schémas visuels · Bots inclus</p>
+      <div class="hero-stats animate-fade-in-delay2">
+        <div class="stat-bubble">
+          <div class="stat-num" data-count="8">0</div>
+          <div class="stat-label">Modules</div>
+        </div>
+        <div class="stat-bubble">
+          <div class="stat-num" data-count="50">0</div>
+          <div class="stat-label">Schémas</div>
+        </div>
+        <div class="stat-bubble">
+          <div class="stat-num" data-count="40">0</div>
+          <div class="stat-label">Quiz</div>
+        </div>
+      </div>
+      <button class="cta-btn animate-fade-in-delay3" onclick="goTo('module1')">
+        Commencer maintenant <span>→</span>
+      </button>
+    </div>
+    <!-- Animated Chart SVG -->
+    <div class="hero-chart animate-chart">
+      <svg class="chart-svg" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#10b981" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <!-- Grid lines -->
+        <line x1="0" y1="60" x2="600" y2="60" stroke="#1e293b" stroke-width="1"/>
+        <line x1="0" y1="120" x2="600" y2="120" stroke="#1e293b" stroke-width="1"/>
+        <line x1="0" y1="180" x2="600" y2="180" stroke="#1e293b" stroke-width="1"/>
+        <line x1="0" y1="240" x2="600" y2="240" stroke="#1e293b" stroke-width="1"/>
+        <!-- Area fill -->
+        <path class="chart-area" d="M0,200 L60,180 L120,160 L180,170 L240,130 L300,100 L360,120 L420,80 L480,60 L540,40 L600,50 L600,300 L0,300 Z" fill="url(#chartGrad)"/>
+        <!-- Line -->
+        <path class="chart-line" d="M0,200 L60,180 L120,160 L180,170 L240,130 L300,100 L360,120 L420,80 L480,60 L540,40 L600,50" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
+        <!-- Animated dot -->
+        <circle class="chart-dot" cx="600" cy="50" r="6" fill="#10b981"/>
+        <circle cx="600" cy="50" r="14" fill="#10b981" fill-opacity="0.2" class="chart-pulse"/>
+        <!-- Candles -->
+        <g class="candles">
+          <rect x="30" y="185" width="12" height="20" rx="2" fill="#ef4444"/>
+          <line x1="36" y1="180" x2="36" y2="210" stroke="#ef4444" stroke-width="1.5"/>
+          <rect x="70" y="170" width="12" height="18" rx="2" fill="#10b981"/>
+          <line x1="76" y1="165" x2="76" y2="195" stroke="#10b981" stroke-width="1.5"/>
+          <rect x="110" y="162" width="12" height="12" rx="2" fill="#10b981"/>
+          <line x1="116" y1="155" x2="116" y2="180" stroke="#10b981" stroke-width="1.5"/>
+          <rect x="150" y="168" width="12" height="15" rx="2" fill="#ef4444"/>
+          <line x1="156" y1="163" x2="156" y2="190" stroke="#ef4444" stroke-width="1.5"/>
+          <rect x="190" y="133" width="12" height="14" rx="2" fill="#10b981"/>
+          <line x1="196" y1="128" x2="196" y2="152" stroke="#10b981" stroke-width="1.5"/>
+          <rect x="230" y="102" width="12" height="12" rx="2" fill="#10b981"/>
+          <line x1="236" y1="96" x2="236" y2="120" stroke="#10b981" stroke-width="1.5"/>
+        </g>
+      </svg>
+    </div>
+    <!-- Scroll indicator -->
+    <div class="scroll-hint" onclick="goTo('module1')">
+      <div class="scroll-arrow">⬇</div>
+      <span>Commencer</span>
+    </div>
+  </section>
+
+  <!-- ====== MODULE 1 — LES BASES ====== -->
+  <section id="module1" class="section">
+    <div class="module-header">
+      <div class="module-badge">MODULE 01</div>
+      <h2 class="module-title">📚 Les Bases du Trading</h2>
+    </div>
+
+    <!-- Qu'est-ce que le trading -->
+    <div class="visual-block reveal">
+      <h3 class="block-title">💡 Qu'est-ce que le Trading ?</h3>
+      <div class="infographic-center">
+        <div class="big-icon-card glow-blue">
+          <div class="big-icon">💱</div>
+          <div class="card-label">Acheter bas</div>
+          <div class="card-arrow">→</div>
+          <div class="big-icon">📈</div>
+          <div class="card-label">Vendre haut</div>
+          <div class="card-equal">=</div>
+          <div class="big-icon profit-icon">💰</div>
+          <div class="card-label green">Profit</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Les 4 marchés -->
+    <div class="visual-block reveal">
+      <h3 class="block-title">🌍 Les 4 Grands Marchés</h3>
+      <div class="markets-grid">
+        <div class="market-card animate-card" onclick="expandCard(this)">
+          <div class="market-icon">🏛️</div>
+          <div class="market-name">Bourse</div>
+          <div class="market-tag">Actions</div>
+          <div class="market-detail hidden">Apple · Tesla · LVMH<br>Lundi–Vendredi<br>9h–17h30</div>
+        </div>
+        <div class="market-card animate-card" onclick="expandCard(this)">
+          <div class="market-icon">💱</div>
+          <div class="market-name">Forex</div>
+          <div class="market-tag">Devises</div>
+          <div class="market-detail hidden">EUR/USD · GBP/JPY<br>24h/24 · 5j/7<br>+6 000 Mds$/jour</div>
+        </div>
+        <div class="market-card animate-card" onclick="expandCard(this)">
+          <div class="market-icon">₿</div>
+          <div class="market-name">Crypto</div>
+          <div class="market-tag">Cryptomonnaies</div>
+          <div class="market-detail hidden">Bitcoin · Ethereum<br>24h/24 · 7j/7<br>Très volatile</div>
+        </div>
+        <div class="market-card animate-card" onclick="expandCard(this)">
+          <div class="market-icon">🛢️</div>
+          <div class="market-name">Matières 1ères</div>
+          <div class="market-tag">Commodities</div>
+          <div class="market-detail hidden">Or · Pétrole · Blé<br>Sensible à l'actualité<br>Diversification</div>
+        </div>
+      </div>
+      <p class="tap-hint">👆 Clique pour en savoir plus</p>
+    </div>
+
+    <!-- Types d'ordres -->
+    <div class="visual-block reveal">
+      <h3 class="block-title">📋 Les 3 Types d'Ordres</h3>
+      <div class="orders-flow">
+        <div class="order-card market-order">
+          <div class="order-icon">⚡</div>
+          <div class="order-name">MARKET</div>
+          <div class="order-desc">Exécution immédiate au prix actuel</div>
+          <div class="order-badge fast">RAPIDE</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="order-card limit-order">
+          <div class="order-icon">🎯</div>
+          <div class="order-name">LIMIT</div>
+          <div class="order-desc">Exécuté au prix que tu choisis</div>
+          <div class="order-badge precise">PRÉCIS</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="order-card stop-order">
+          <div class="order-icon">🛑</div>
+          <div class="order-name">STOP</div>
+          <div class="order-desc">Déclenché quand le prix atteint un seuil</div>
+          <div class="order-badge protect">PROTECTION</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quiz Module 1 -->
+    <div class="quiz-block reveal" id="quiz1">
+      <div class="quiz-header">🎯 Quiz — Module 1</div>
+      <div class="quiz-questions" id="q1"></div>
+    </div>
+  </section>
+
+  <!-- ====== MODULE 2 — TYPES DE TRADING ====== -->
+  <section id="module2" class="section">
+    <div class="module-header">
+      <div class="module-badge">MODULE 02</div>
+      <h2 class="module-title">⚡ Types de Trading</h2>
+    </div>
+
+    <!-- Timeline visuelle -->
+    <div class="visual-block reveal">
+      <h3 class="block-title">⏱️ La Durée : tout change !</h3>
+      <div class="timeline-visual">
+        <div class="timeline-bar">
+          <div class="tl-segment scalp" style="width:10%">
+            <span>Scalping</span>
+          </div>
+          <div class="tl-segment day" style="width:20%">
+            <span>Day</span>
+          </div>
+          <div class="tl-segment swing" style="width:30%">
+            <span>Swing</span>
+          </div>
+          <div class="tl-segment position" style="width:40%">
+            <span>Position</span>
+          </div>
+        </div>
+        <div class="timeline-labels">
+          <span>Secondes</span>
+          <span>Heures</span>
+          <span>Jours</span>
+          <span>Mois+</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 Trading cards -->
+    <div class="visual-block reveal">
+      <div class="trading-types-grid">
+
+        <div class="type-card scalping-card">
+          <div class="type-glow"></div>
+          <div class="type-emoji">⚡</div>
+          <div class="type-name">SCALPING</div>
+          <div class="type-metrics">
+            <div class="metric"><span class="m-label">⏱ Durée</span><span class="m-val">sec → min</span></div>
+            <div class="metric"><span class="m-label">📊 Trades/j</span><span class="m-val">10–100+</span></div>
+            <div class="metric"><span class="m-label">😰 Stress</span><span class="stress-bar s5">●●●●●</span></div>
+            <div class="metric"><span class="m-label">💰 Capital</span><span class="m-val">Faible</span></div>
+          </div>
+          <div class="type-verdict red">Expert requis</div>
+        </div>
+
+        <div class="type-card day-card">
+          <div class="type-glow"></div>
+          <div class="type-emoji">🌅</div>
+          <div class="type-name">DAY TRADING</div>
+          <div class="type-metrics">
+            <div class="metric"><span class="m-label">⏱ Durée</span><span class="m-val">minutes → heures</span></div>
+            <div class="metric"><span class="m-label">📊 Trades/j</span><span class="m-val">2–10</span></div>
+            <div class="metric"><span class="m-label">😰 Stress</span><span class="stress-bar s4">●●●●○</span></div>
+            <div class="metric"><span class="m-label">💰 Capital</span><span class="m-val">Moyen</span></div>
+          </div>
+          <div class="type-verdict orange">Intermédiaire</div>
+        </div>
+
+        <div class="type-card swing-card">
+          <div class="type-glow"></div>
+          <div class="type-emoji">🌊</div>
+          <div class="type-name">SWING TRADING</div>
+          <div class="type-metrics">
+            <div class="metric"><span class="m-label">⏱ Durée</span><span class="m-val">jours → semaines</span></div>
+            <div class="metric"><span class="m-label">📊 Trades/j</span><span class="m-val">1–5/sem</span></div>
+            <div class="metric"><span class="m-label">😰 Stress</span><span class="stress-bar s2">●●○○○</span></div>
+            <div class="metric"><span class="m-label">💰 Capital</span><span class="m-val">Moyen</span></div>
+          </div>
+          <div class="type-verdict green">Idéal débutant</div>
+        </div>
+
+        <div class="type-card position-card">
+          <div class="type-glow"></div>
+          <div class="type-emoji">🏔️</div>
+          <div class="type-name">POSITION TRADING</div>
+          <div class="type-metrics">
+            <div class="metric"><span class="m-label">⏱ Durée</span><span class="m-val">mois → années</span></div>
+            <div class="metric"><span class="m-label">📊 Trades/j</span><span class="m-val">1–2/mois</span></div>
+            <div class="metric"><span class="m-label">😰 Stress</span><span class="stress-bar s1">●○○○○</span></div>
+            <div class="metric"><span class="m-label">💰 Capital</span><span class="m-val">Important</span></div>
+          </div>
+          <div class="type-verdict blue">Long terme</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quiz Module 2 -->
+    <div class="quiz-block reveal" id="quiz2">
+      <div class="quiz-header">🎯 Quiz — Module 2</div>
+      <div class="quiz-questions" id="q2"></div>
+    </div>
+  </section>
+
+  <!-- ====== MODULE 3 — ANALYSE TECHNIQUE ====== -->
+  <section id="module3" class="section">
+    <div class="module-header">
+      <div class="module-badge">MODULE 03</div>
+      <h2 class="module-title">📊 Analyse Technique</h2>
+    </div>
+
+    <!-- Chandeliers japonais -->
+    <div class="visual-block reveal">
+      <h3 class="block-title">🕯️ Chandeliers Japonais</h3>
+      <div class="candle-anatomy">
+        <svg class="candle-svg" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+          <!-- Bougie verte (haussière) -->
+          <line x1="50" y1="30" x2="50" y2="80" stroke="#10b981" stroke-width="2"/>
+          <rect x="30" y="80" width="40" height="120" rx="3" fill="#10b981"/>
+          <line x1="50" y1="200" x2="50" y2="240" stroke="#10b981" stroke-width="2"/>
+          <!-- Labels -->
+          <text x="100" y="35" fill="#10b981" font-size="12" font-family="Inter">▲ Mèche haute</text>
+          <text x="100" y="85" fill="#94a3b8" font-size="11" font-family="Inter">Plus haut</text>
+          <text x="100" y="140" fill="#10b981" font-size="12" font-family="Inter">CORPS</text>
+          <text x="100" y="160" fill="#94a3b8" font-size="10" font-family="Inter">Ouverture→Clôture</text>
+          <text x="100" y="205" fill="#94a3b8" font-size="11" font-family="Inter">Plus bas</text>
+          <text x="100" y="245" fill="#10b981" font-size="12" font-family="Inter">▼ Mèche basse</text>
+          <!-- Arrows -->
+          <line x1="98" y1="33" x2="60" y2="33" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3"/>
+          <line x1="98" y1="83" x2="72" y2="83" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3"/>
+          <line x1="98" y1="200" x2="72" y2="200" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3"/>
+          <line x1="98" y1="243" x2="60" y2="243" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3"/>
+        </svg>
+        <svg class="candle-svg" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+          <!-- Bougie rouge (baissière) -->
+          <line x1="50" y1="30" x2="50" y2="80" stroke="#ef4444" stroke-width="2"/>
+          <rect x="30" y="80" width="40" height="120" rx="3" fill="#ef4444"/>
+          <line x1="50" y1="200" x2="50" y2="240" stroke="#ef4444" stroke-width="2"/>
+          <!-- Labels -->
+          <text x="100" y="85" fill="#ef4444" font-size="12" font-family="Inter">Clôture (bas)</text>
+          <text x="100" y="140" fill="#ef4444" font-size="12" font-family="Inter">CORPS</text>
+          <text x="100" y="160" fill="#94a3b8" font-size="10" font-family="Inter">Baisse du prix</text>
+          <text x="100" y="205" fill="#ef4444" font-size="12" font-family="Inter">Ouverture (haut)</text>
+          <!-- Arrows -->
+          <line x1="98" y1="83" x2="72" y2="83" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3"/>
+          <line x1="98" y1="200" x2="72" y2="200" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Patterns de chandeliers -->
+    <div class="visual-block reveal">
+      <h3 class="block-title">🔮 Patterns Clés</h3>
+      <div class="patterns-grid">
+        <div class="pattern-card bullish">
+          <div class="pattern-candles">
+            <svg viewBox="0 0 60 80" width="60" height="80">
+              <line x1="30" y1="5" x2="30" y2="20" stroke="#ef4444" stroke-width="2"/>
+              <rect x="18" y="20" width="24" height="35" rx="2" fill="#ef4444"/>
+              <line x1="30" y1="55" x2="30" y2="65" stroke="#ef4444" stroke-width="2"/>
+              <line x1="30" y1="65" x2="30" y2="75" stroke="#10b981" stroke-width="2"/>
+              <rect x="18" y="40" width="24" height="35" rx="2" fill="#10b981"/>
+            </svg>
+          </div>
+          <div class="pattern-name">Englobant Haussier</div>
+          <div class="pattern-signal green-sig">🟢 ACHAT</div>
+        </div>
+        <div class="pattern-card bearish">
+          <div class="pattern-candles">
+            <svg viewBox="0 0 60 80" width="60" height="80">
+              <line x1="30" y1="5" x2="30" y2="15" stroke="#10b981" stroke-width="2"/>
+              <rect x="18" y="15" width="24" height="30" rx="2" fill="#10b981"/>
+              <line x1="30" y1="45" x2="30" y2="55" stroke="#10b981" stroke-width="2"/>
+              <line x1="30" y1="5" x2="30" y2="15" stroke="#ef4444" stroke-width="2"/>
+              <rect x="14" y="10" width="32" height="45" rx="2" fill="#ef4444"/>
+              <line x1="30" y1="55" x2="30" y2="70" stroke="#ef4444" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="pattern-name">Englobant Baissier</div>
+          <div class="pattern-signal red-sig">🔴 VENTE</div>
+        </div>
+        <div class="pattern-card doji">
+          <div class="pattern-candles">
+            <svg viewBox="0 0 60 80" width="60" height="80">
+              <line x1="30" y1="10" x2="30" y2="38" stroke="#f59e0b" stroke-width="2"/>
+              <rect x="15" y="38" width="30" height="4" rx="1" fill="#f59e0b"/>
+              <line x1="30" y1="42" x2="30" y2="70" stroke="#f59e0b" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="pattern-name">Doji</div>
+          <div class="pattern-signal yellow-sig">🟡 INDÉCISION</div>
+        </div>
+        <div class="pattern-card hammer">
+          <div class="pattern-candles">
+            <svg viewBox="0 0 60 80" width="60" height="80">
+              <line x1="30" y1="10" x2="30" y2="18" stroke="#10b981" stroke-width="2"/>
+              <rect x="18" y="18" width="24" height="15" rx="2" fill="#10b981"/>
+              <line x1="30" y1="33" x2="30" y2="70" stroke="#10b981" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="pattern-name">Marteau</div>
+          <div class="pattern-signal green-sig">🟢 RETOURNEMENT</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Indicateurs visuels -->
+    <div class="visual-block reveal">
+      <h3 class="block-title">📡 Indicateurs Techniques</h3>
+      <div class="indicators-grid">
+        <div class="indicator-card" onclick="showIndicator('rsi')">
+          <div class="ind-icon">📏</div>
+          <div class="ind-name">RSI</div>
+          <div class="rsi-gauge">
+            <div class="gauge-track">
+              <div class="gauge-zone red-zone"></div>
+              <div class="gauge-zone yellow-zone"></div>
+              <div class="gauge-zone green-zone"></div>
+              <div class="gauge-needle" style="left:65%"></div>
+            </div>
+            <div class="gauge-labels"><span>0</span><span>30</span><span>70</span><span>100</span></div>
+          </div>
+          <div class="ind-tip">Survente / Surachat</div>
+        </div>
+        <div class="indicator-card" onclick="showIndicator('macd')">
+          <div class="ind-icon">📊</div>
+          <div class="ind-name">MACD</div>
+          <svg viewBox="0 0 120 60" width="120" height="60" class="mini-chart">
+            <line x1="0" y1="30" x2="120" y2="30" stroke="#1e293b" stroke-width="1"/>
+            <rect x="10" y="15" width="8" height="15" fill="#10b981" rx="1"/>
+            <rect x="22" y="10" width="8" height="20" fill="#10b981" rx="1"/>
+            <rect x="34" y="18" width="8" height="12" fill="#10b981" rx="1"/>
+            <rect x="46" y="30" width="8" height="10" fill="#ef4444" rx="1"/>
+            <rect x="58" y="30" width="8" height="15" fill="#ef4444" rx="1"/>
+            <rect x="70" y="30" width="8" height="8" fill="#ef4444" rx="1"/>
+            <rect x="82" y="22" width="8" height="8" fill="#10b981" rx="1"/>
+            <rect x="94" y="16" width="8" height="14" fill="#10b981" rx="1"/>
+          </svg>
+          <div class="ind-tip">Convergence / Divergence</div>
+        </div>
+        <div class="indicator-card" onclick="showIndicator('bollinger')">
+          <div class="ind-icon">📐</div>
+          <div class="ind-name">Bandes de Bollinger</div>
+          <svg viewBox="0 0 120 60" width="120" height="60" class="mini-chart">
+            <path d="M0,10 C30,5 60,15 90,8 L120,12" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4"/>
+            <path d="M0,30 C30,28 60,32 90,29 L120,31" fill="none" stroke="#f59e0b" stroke-width="2"/>
+            <path d="M0,50 C30,55 60,45 90,52 L120,48" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4"/>
+          </svg>
+          <div class="ind-tip">Volatilité du marché</div>
+        </div>
+        <div class="indicator-card" onclick="showIndicator('ma')">
+          <div class="ind-icon">📈</div>
+          <div class="ind-name">Moyennes Mobiles</div>
+          <svg viewBox="0 0 120 60" width="120" height="60" class="mini-chart">
+            <path d="M0,45 L20,40 L40,35 L60,38 L80,25 L100,20 L120,15" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3"/>
+            <path d="M0,50 L20,44 L40,38 L60,35 L80,28 L100,18 L120,13" fill="none" stroke="#10b981" stroke-width="2"/>
+            <path d="M0,48 L20,42 L40,36 L60,32 L80,22 L100,16 L120,11" fill="none" stroke="#3b82f6" stroke-width="2"/>
+          </svg>
+          <div class="ind-tip">MA20 / MA50 / MA200</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Supports & Résistances -->
+    <div class="visual-block reveal">
+      <h3 class="block-title">📐 Supports & Résistances</h3>
+      <div class="sr-visual">
+        <svg viewBox="0 0 500 200" width="100%" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="50" x2="500" y2="50" stroke="#ef4444" stroke-width="2" stroke-dasharray="8"/>
+          <text x="405" y="44" fill="#ef4444" font-size="12" font-family="Inter">RÉSISTANCE</text>
+          <line x1="0" y1="150" x2="500" y2="150" stroke="#10b981" stroke-width="2" stroke-dasharray="8"/>
+          <text x="420" y="166" fill="#10b981" font-size="12" font-family="Inter">SUPPORT</text>
+          <path d="M0,130 L50,120 L100,110 L150,90 L200,140 L250,60 L300,100 L350,70 L400,55 L450,80 L500,65" fill="none" stroke="#3b82f6" stroke-width="2.5"/>
+          <!-- Bounce arrows -->
+          <path d="M155,95 L155,145" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-up)"/>
+          <path d="M250,65 L250,50" stroke="#ef4444" stroke-width="2"/>
+          <path d="M250,65 L250,115" stroke="#10b981" stroke-width="2"/>
+          <defs>
+            <marker id="arrow-up" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+              <path d="M0,6 L3,0 L6,6" fill="#10b981"/>
+            </marker>
+          </defs>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Quiz Module 3 -->
+    <div class="quiz-block reveal" id="quiz3">
+      <div class="quiz-header">🎯 Quiz — Module 3</div>
+      <div class="quiz-questions" id="q3"></div>
+    </div>
+  </section>
+
+  <!-- ====== MODULE 4 — ANALYSE FONDAMENTALE ====== -->
+  <section id="module4" class="section">
+    <div class="module-header">
+      <div class="module-badge">MODULE 04</div>
+      <h2 class="module-title">🔍 Analyse Fondamentale</h2>
+    </div>
+
+    <div class="visual-block reveal">
+      <h3 class="block-title">🏢 Pour les Actions</h3>
+      <div class="fundamental-icons">
+        <div class="fund-item">
+          <div class="fund-icon">📊</div>
+          <div class="fund-name">PER</div>
+          <div class="fund-desc">Prix / Bénéfice</div>
+          <div class="fund-scale">
+            <div class="scale-bar">
+              <div class="scale-fill" style="width:40%"></div>
+            </div>
+            <span class="scale-label">Bon si &lt; 15</span>
+          </div>
+        </div>
+        <div class="fund-item">
+          <div class="fund-icon">💰</div>
+          <div class="fund-name">BNA</div>
+          <div class="fund-desc">Bénéfice Net/Action</div>
+          <div class="fund-scale">
+            <div class="scale-bar green-scale">
+              <div class="scale-fill" style="width:70%"></div>
+            </div>
+            <span class="scale-label">Plus c'est haut = mieux</span>
+          </div>
+        </div>
+        <div class="fund-item">
+          <div class="fund-icon">💳</div>
+          <div class="fund-name">Ratio Dette</div>
+          <div class="fund-desc">Dette / Capitaux propres</div>
+          <div class="fund-scale">
+            <div class="scale-bar red-scale">
+              <div class="scale-fill" style="width:80%"></div>
+            </div>
+            <span class="scale-label">Danger si &gt; 2</span>
+          </div>
+        </div>
+        <div class="fund-item">
+          <div class="fund-icon">📈</div>
+          <div class="fund-name">Chiffre d'affaires</div>
+          <div class="fund-desc">Croissance annuelle</div>
+          <div class="fund-scale">
+            <div class="scale-bar green-scale">
+              <div class="scale-fill" style="width:60%"></div>
+            </div>
+            <span class="scale-label">Croissance soutenue</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-block reveal">
+      <h3 class="block-title">🌐 Pour le Forex</h3>
+      <div class="macro-grid">
+        <div class="macro-card">
+          <div class="macro-icon">🏦</div>
+          <div class="macro-name">Taux d'intérêt</div>
+          <div class="macro-impact">
+            <span class="impact-arrow up">↑</span> Taux → Devise plus forte
+          </div>
+        </div>
+        <div class="macro-card">
+          <div class="macro-icon">📉</div>
+          <div class="macro-name">Inflation</div>
+          <div class="macro-impact">
+            <span class="impact-arrow down">↑</span> Inflation → Devise affaiblie
+          </div>
+        </div>
+        <div class="macro-card">
+          <div class="macro-icon">🏭</div>
+          <div class="macro-name">PIB</div>
+          <div class="macro-impact">
+            <span class="impact-arrow up">↑</span> PIB → Économie forte
+          </div>
+        </div>
+        <div class="macro-card">
+          <div class="macro-icon">👷</div>
+          <div class="macro-name">Emploi (NFP)</div>
+          <div class="macro-impact">
+            <span class="impact-arrow up">↑</span> Emploi → Confiance hausse
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-block reveal">
+      <h3 class="block-title">₿ Pour les Cryptos</h3>
+      <div class="crypto-fund-grid">
+        <div class="crypto-pill">📄 Whitepaper</div>
+        <div class="crypto-pill">👥 Équipe</div>
+        <div class="crypto-pill">🔗 Tokenomics</div>
+        <div class="crypto-pill">🌍 Adoption</div>
+        <div class="crypto-pill">🔐 Sécurité</div>
+        <div class="crypto-pill">⚙️ Utilité</div>
+        <div class="crypto-pill">📡 On-chain</div>
+        <div class="crypto-pill">🏛️ DAO / Gouvernance</div>
+      </div>
+    </div>
+
+    <!-- Quiz Module 4 -->
+    <div class="quiz-block reveal" id="quiz4">
+      <div class="quiz-header">🎯 Quiz — Module 4</div>
+      <div class="quiz-questions" id="q4"></div>
+    </div>
+  </section>
+
+  <!-- ====== MODULE 5 — GESTION DU RISQUE ====== -->
+  <section id="module5" class="section">
+    <div class="module-header">
+      <div class="module-badge">MODULE 05</div>
+      <h2 class="module-title">🛡️ Gestion du Risque</h2>
+    </div>
+
+    <!-- Règle du 1-2% -->
+    <div class="visual-block reveal">
+      <h3 class="block-title">💡 La Règle d'Or : 1–2% par trade</h3>
+      <div class="risk-visual">
+        <div class="capital-circle">
+          <div class="circle-outer">
+            <div class="circle-inner">
+              <div class="circle-text">💰</div>
+              <div class="circle-label">Capital Total</div>
+              <div class="circle-amount">10 000 €</div>
+            </div>
+            <div class="risk-slice">
+              <div class="risk-icon">⚠️</div>
+              <div class="risk-pct">MAX 2%</div>
+              <div class="risk-amount">= 200 €</div>
+            </div>
+          </div>
+        </div>
+        <div class="risk-explanation">
+          <div class="risk-rule">
+            <div class="rule-icon">✅</div>
+            <div class="rule-text">Risque max par trade : <strong>1–2%</strong></div>
+          </div>
+          <div class="risk-rule">
+            <div class="rule-icon">🎯</div>
+            <div class="rule-text">50 trades perdants → survie garantie</div>
+          </div>
+          <div class="risk-rule">
+            <div class="rule-icon">❌</div>
+            <div class="rule-text">Risquer 50% = ruin rapide</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ratio Risque/Rendement -->
+    <div class="visual-block reveal">
+      <h3 class="block-title">⚖️ Ratio Risque / Rendement</h3>
+      <div class="rr-visual">
+        <div class="rr-entry">
+          <div class="rr-label">📍 ENTRÉE</div>
+          <div class="rr-price">100€</div>
+        </div>
+        <div class="rr-bars">
+          <div class="rr-loss-bar">
+            <div class="rr-bar red-bar" style="height:60px">
+              <span>Stop Loss<br>-10€</span>
+            </div>
+          </div>
+          <div class="vs-circle">R/R</div>
+          <div class="rr-profit-bar">
+            <div class="rr-bar green-bar" style="height:120px">
+              <span>Take Profit<br>+20€</span>
+            </div>
+          </div>
+        </div>
+        <div class="rr-ratio-badge">1:2 ✅</div>
+        <div class="rr-verdict">Minimum recommandé : <strong>1:2</strong></div>
+      </div>
+    </div>
+
+    <!-- Pyramide du risque -->
+    <div class="visual-block reveal">
+      <h3 class="block-title">🔺 Pyramide du Risque</h3>
+      <div class="risk-pyramid">
+        <div class="pyramid-level level-1">
+          <span>🎰 Jeu pur</span><span class="pct-risk">→ Fuite !</span>
+        </div>
+        <div class="pyramid-level level-2">
+          <span>⚡ Scalping sans plan</span><span class="pct-risk">Très risqué</span>
+        </div>
+        <div class="pyramid-level level-3">
+          <span>📊 Trading actif + levier</span><span class="pct-risk">Risqué</span>
+        </div>
+        <div class="pyramid-level level-4">
+          <span>🌊 Swing Trading + SL</span><span class="pct-risk">Modéré</span>
+        </div>
+        <div class="pyramid-level level-5">
+          <span>🏔️ Investissement long terme</span><span class="pct-risk">Faible</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quiz Module 5 -->
+    <div class="quiz-block reveal" id="quiz5">
+      <div class="quiz-header">🎯 Quiz — Module 5</div>
+      <div class="quiz-questions" id="q5"></div>
+    </div>
+  </section>
+
+  <!-- ====== MODULE 6 — PSYCHOLOGIE ====== -->
+  <section id="module6" class="section">
+    <div class="module-header">
+      <div class="module-badge">MODULE 06</div>
+      <h2 class="module-title">🧠 Psychologie du Trading</h2>
+    </div>
+
+    <!-- Les émotions -->
+    <div class="visual-block reveal">
+      <h3 class="block-title">😱 Les Émotions qui Détruisent</h3>
+      <div class="emotions-wheel">
+        <div class="emotion-card fomo">
+          <div class="emotion-emoji">😰</div>
+          <div class="emotion-name">FOMO</div>
+          <div class="emotion-desc">Fear of Missing Out<br>→ Entrée précipitée</div>
+        </div>
+        <div class="emotion-card revenge">
+          <div class="emotion-emoji">😤</div>
+          <div class="emotion-name">Revenge Trading</div>
+          <div class="emotion-desc">Rattraper une perte<br>→ Perte double</div>
+        </div>
+        <div class="emotion-card greed">
+          <div class="emotion-emoji">🤑</div>
+          <div class="emotion-name">Avidité</div>
+          <div class="emotion-desc">Rester trop longtemps<br>→ Gain évaporé</div>
+        </div>
+        <div class="emotion-card fear">
+          <div class="emotion-emoji">😨</div>
+          <div class="emotion-name">Peur</div>
+          <div class="emotion-desc">Sortir trop tôt<br>→ Profit limité</div>
+        </div>
+        <div class="emotion-card overconfidence">
+          <div class="emotion-emoji">😎</div>
+          <div class="emotion-name">Surconfiance</div>
+          <div class="emotion-desc">Après succès<br>→ Position trop grande</div>
+        </div>
+        <div class="emotion-card hope">
+          <div class="emotion-emoji">🙏</div>
+          <div class="emotion-name">Espoir</div>
+          <div class="emotion-desc">Garder perdant<br>→ Ruine progressive</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Plan de trading -->
+    <div class="visual-block reveal">
+      <h3 class="block-title">📋 Plan de Trading = Règles Fixes</h3>
+      <div class="trading-plan-flow">
+        <div class="plan-step">
+          <div class="step-num">1</div>
+          <div class="step-icon">🎯</div>
+          <div class="step-label">Condition d'entrée</div>
+        </div>
+        <div class="plan-arrow">→</div>
+        <div class="plan-step">
+          <div class="step-num">2</div>
+          <div class="step-icon">🛑</div>
+          <div class="step-label">Stop Loss fixé</div>
+        </div>
+        <div class="plan-arrow">→</div>
+        <div class="plan-step">
+          <div class="step-num">3</div>
+          <div class="step-icon">💰</div>
+          <div class="step-label">Take Profit défini</div>
+        </div>
+        <div class="plan-arrow">→</div>
+        <div class="plan-step">
+          <div class="step-num">4</div>
+          <div class="step-icon">📓</div>
+          <div class="step-label">Journal du trade</div>
+        </div>
+        <div class="plan-arrow">→</div>
+        <div class="plan-step">
+          <div class="step-num">5</div>
+          <div class="step-icon">📊</div>
+          <div class="step-label">Analyse mensuelle</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quiz Module 6 -->
+    <div class="quiz-block reveal" id="quiz6">
+      <div class="quiz-header">🎯 Quiz — Module 6</div>
+      <div class="quiz-questions" id="q6"></div>
+    </div>
+  </section>
+
+  <!-- ====== MODULE 7 — BOTS DE TRADING ====== -->
+  <section id="module7" class="section">
+    <div class="module-header">
+      <div class="module-badge">MODULE 07</div>
+      <h2 class="module-title">🤖 Bots de Trading</h2>
+      <div class="module-badge-new">NOUVEAU</div>
+    </div>
+
+    <!-- Qu'est-ce qu'un bot -->
+    <div class="visual-block reveal">
+      <h3 class="block-title">🤖 Comment fonctionne un Bot ?</h3>
+      <div class="bot-flow">
+        <div class="bot-step">
+          <div class="bot-icon">📡</div>
+          <div class="bot-label">Données marché</div>
+        </div>
+        <div class="bot-arrow animated-arrow">→</div>
+        <div class="bot-step">
+          <div class="bot-icon">🧮</div>
+          <div class="bot-label">Algorithme</div>
+        </div>
+        <div class="bot-arrow animated-arrow">→</div>
+        <div class="bot-step">
+          <div class="bot-icon">⚖️</div>
+          <div class="bot-label">Signal</div>
+        </div>
+        <div class="bot-arrow animated-arrow">→</div>
+        <div class="bot-step active-step">
+          <div class="bot-icon">⚡</div>
+          <div class="bot-label">Ordre auto</div>
+        </div>
+        <div class="bot-arrow animated-arrow">→</div>
+        <div class="bot-step">
+          <div class="bot-icon">💹</div>
+          <div class="bot-label">Exécution</div>
+        </div>
+      </div>
+      <div class="bot-advantages">
+        <div class="adv-card">
+          <div class="adv-icon">⏰</div>
+          <div class="adv-text">24h/24 · 7j/7</div>
+        </div>
+        <div class="adv-card">
+          <div class="adv-icon">😶</div>
+          <div class="adv-text">Sans émotion</div>
+        </div>
+        <div class="adv-card">
+          <div class="adv-icon">⚡</div>
+          <div class="adv-text">Millisecondes</div>
+        </div>
+        <div class="adv-card">
+          <div class="adv-icon">📊</div>
+          <div class="adv-text">Multi-marchés</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Types de bots -->
+    <div class="visual-block reveal">
+      <h3 class="block-title">🎭 Types de Bots</h3>
+      <div class="bot-types-grid">
+        <div class="bot-type-card grid-bot">
+          <div class="bot-type-icon">📐</div>
+          <div class="bot-type-name">Grid Bot</div>
+          <svg viewBox="0 0 100 80" width="100" height="80" class="bot-mini-svg">
+            <line x1="0" y1="20" x2="100" y2="20" stroke="#3b82f6" stroke-width="1" stroke-dasharray="4"/>
+            <line x1="0" y1="40" x2="100" y2="40" stroke="#3b82f6" stroke-width="1" stroke-dasharray="4"/>
+            <line x1="0" y1="60" x2="100" y2="60" stroke="#3b82f6" stroke-width="1" stroke-dasharray="4"/>
+            <path d="M10,55 L25,25 L40,45 L55,15 L70,35 L85,20" fill="none" stroke="#10b981" stroke-width="2"/>
+            <circle cx="25" cy="25" r="3" fill="#10b981"/>
+            <circle cx="55" cy="15" r="3" fill="#ef4444"/>
+            <circle cx="40" cy="45" r="3" fill="#10b981"/>
+            <circle cx="70" cy="35" r="3" fill="#ef4444"/>
+          </svg>
+          <div class="bot-type-desc">Achète bas, vend haut dans une fourchette</div>
+        </div>
+        <div class="bot-type-card dca-bot">
+          <div class="bot-type-icon">📅</div>
+          <div class="bot-type-name">DCA Bot</div>
+          <svg viewBox="0 0 100 80" width="100" height="80" class="bot-mini-svg">
+            <path d="M5,70 L20,55 L35,60 L50,40 L65,45 L80,25 L95,30" fill="none" stroke="#3b82f6" stroke-width="2"/>
+            <circle cx="5" cy="70" r="4" fill="#f59e0b"/>
+            <circle cx="35" cy="60" r="4" fill="#f59e0b"/>
+            <circle cx="65" cy="45" r="4" fill="#f59e0b"/>
+            <circle cx="95" cy="30" r="4" fill="#f59e0b"/>
+            <text x="2" y="78" fill="#f59e0b" font-size="6">Achat</text>
+            <text x="32" y="68" fill="#f59e0b" font-size="6">Achat</text>
+            <text x="62" y="53" fill="#f59e0b" font-size="6">Achat</text>
+          </svg>
+          <div class="bot-type-desc">Investissement régulier pour moyenner le prix</div>
+        </div>
+        <div class="bot-type-card arb-bot">
+          <div class="bot-type-icon">⚡</div>
+          <div class="bot-type-name">Arbitrage Bot</div>
+          <svg viewBox="0 0 100 80" width="100" height="80" class="bot-mini-svg">
+            <circle cx="25" cy="40" r="18" fill="none" stroke="#3b82f6" stroke-width="2"/>
+            <circle cx="75" cy="40" r="18" fill="none" stroke="#10b981" stroke-width="2"/>
+            <text x="18" y="36" fill="#3b82f6" font-size="8">Binance</text>
+            <text x="19" y="46" fill="#10b981" font-size="7">100 €</text>
+            <text x="65" y="36" fill="#10b981" font-size="8">Coinbase</text>
+            <text x="66" y="46" fill="#ef4444" font-size="7">101 €</text>
+            <path d="M43,35 L57,30" stroke="#f59e0b" stroke-width="2" marker-end="url(#arr)"/>
+            <path d="M57,50 L43,45" stroke="#f59e0b" stroke-width="2" marker-end="url(#arr)"/>
+            <defs><marker id="arr" markerWidth="4" markerHeight="4" refX="2" refY="2" orient="auto"><path d="M0,0 L4,2 L0,4" fill="#f59e0b"/></marker></defs>
+          </svg>
+          <div class="bot-type-desc">Exploite les différences de prix entre exchanges</div>
+        </div>
+        <div class="bot-type-card trend-bot">
+          <div class="bot-type-icon">📈</div>
+          <div class="bot-type-name">Trend Following</div>
+          <svg viewBox="0 0 100 80" width="100" height="80" class="bot-mini-svg">
+            <path d="M5,65 L20,58 L35,50 L50,42 L65,30 L80,20 L95,12" fill="none" stroke="#10b981" stroke-width="2"/>
+            <path d="M5,70 L20,62 L35,54 L50,46 L65,34 L80,24 L95,16" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3"/>
+            <circle cx="60" cy="33" r="6" fill="none" stroke="#10b981" stroke-width="2"/>
+            <text x="52" y="37" fill="#10b981" font-size="6">BUY</text>
+          </svg>
+          <div class="bot-type-desc">Suit la tendance avec indicateurs (MA, RSI)</div>
+        </div>
+        <div class="bot-type-card sniper-bot">
+          <div class="bot-type-icon">🎯</div>
+          <div class="bot-type-name">Sniper Bot</div>
+          <svg viewBox="0 0 100 80" width="100" height="80" class="bot-mini-svg">
+            <circle cx="50" cy="40" r="25" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+            <circle cx="50" cy="40" r="15" fill="none" stroke="#ef4444" stroke-width="1"/>
+            <circle cx="50" cy="40" r="5" fill="#ef4444"/>
+            <line x1="50" y1="10" x2="50" y2="70" stroke="#ef4444" stroke-width="1"/>
+            <line x1="20" y1="40" x2="80" y2="40" stroke="#ef4444" stroke-width="1"/>
+            <text x="60" y="20" fill="#ef4444" font-size="6">Listing</text>
+          </svg>
+          <div class="bot-type-desc">Achète au listing d'un nouveau token</div>
+        </div>
+        <div class="bot-type-card mm-bot">
+          <div class="bot-type-icon">🏪</div>
+          <div class="bot-type-name">Market Making</div>
+          <svg viewBox="0 0 100 80" width="100" height="80" class="bot-mini-svg">
+            <rect x="10" y="30" width="25" height="15" rx="3" fill="#10b981" opacity="0.8"/>
+            <text x="15" y="42" fill="white" font-size="7">BID</text>
+            <rect x="65" y="30" width="25" height="15" rx="3" fill="#ef4444" opacity="0.8"/>
+            <text x="71" y="42" fill="white" font-size="7">ASK</text>
+            <line x1="35" y1="37" x2="65" y2="37" stroke="#f59e0b" stroke-width="2" stroke-dasharray="3"/>
+            <text x="42" y="33" fill="#f59e0b" font-size="6">Spread</text>
+            <rect x="10" y="50" width="20" height="8" rx="2" fill="#10b981" opacity="0.5"/>
+            <rect x="35" y="50" width="15" height="8" rx="2" fill="#10b981" opacity="0.5"/>
+            <rect x="55" y="50" width="20" height="8" rx="2" fill="#ef4444" opacity="0.5"/>
+            <rect x="79" y="50" width="12" height="8" rx="2" fill="#ef4444" opacity="0.5"/>
+          </svg>
+          <div class="bot-type-desc">Fournit liquidité en posant Bid & Ask</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Plateformes -->
+    <div class="visual-block reveal">
+      <h3 class="block-title">🛠️ Plateformes Populaires</h3>
+      <div class="platforms-grid">
+        <div class="platform-card">
+          <div class="platform-icon">🔺</div>
+          <div class="platform-name">3Commas</div>
+          <div class="platform-tags">
+            <span class="ptag">DCA</span><span class="ptag">Grid</span><span class="ptag">Smart Trade</span>
+          </div>
+          <div class="platform-level beginner">⭐ Débutant</div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-icon">🐦</div>
+          <div class="platform-name">Pionex</div>
+          <div class="platform-tags">
+            <span class="ptag">Grid gratuit</span><span class="ptag">DCA</span>
+          </div>
+          <div class="platform-level beginner">⭐ Débutant</div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-icon">🌿</div>
+          <div class="platform-name">Cryptohopper</div>
+          <div class="platform-tags">
+            <span class="ptag">Signaux</span><span class="ptag">Marketplace</span>
+          </div>
+          <div class="platform-level intermediate">⭐⭐ Intermédiaire</div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-icon">🔫</div>
+          <div class="platform-name">Gunbot</div>
+          <div class="platform-tags">
+            <span class="ptag">On-premise</span><span class="ptag">Avancé</span>
+          </div>
+          <div class="platform-level advanced">⭐⭐⭐ Avancé</div>
+        </div>
+        <div class="platform-card open-source">
+          <div class="platform-icon">🐍</div>
+          <div class="platform-name">Freqtrade</div>
+          <div class="platform-tags">
+            <span class="ptag">Open Source</span><span class="ptag">Python</span><span class="ptag">Gratuit</span>
+          </div>
+          <div class="platform-level advanced">⭐⭐⭐ Expert</div>
+        </div>
+        <div class="platform-card open-source">
+          <div class="platform-icon">🦅</div>
+          <div class="platform-name">Hummingbot</div>
+          <div class="platform-tags">
+            <span class="ptag">Market Making</span><span class="ptag">Arbitrage</span>
+          </div>
+          <div class="platform-level advanced">⭐⭐⭐ Expert</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Backtesting -->
+    <div class="visual-block reveal">
+      <h3 class="block-title">🔬 Backtesting — Tester avant de risquer</h3>
+      <div class="backtest-flow">
+        <div class="bt-step">
+          <div class="bt-icon">📜</div>
+          <div class="bt-label">Stratégie</div>
+        </div>
+        <div class="bt-arrow">→</div>
+        <div class="bt-step">
+          <div class="bt-icon">📅</div>
+          <div class="bt-label">Données historiques</div>
+        </div>
+        <div class="bt-arrow">→</div>
+        <div class="bt-step">
+          <div class="bt-icon">⚙️</div>
+          <div class="bt-label">Simulation</div>
+        </div>
+        <div class="bt-arrow">→</div>
+        <div class="bt-step">
+          <div class="bt-icon">📊</div>
+          <div class="bt-label">Résultats</div>
+        </div>
+        <div class="bt-arrow">→</div>
+        <div class="bt-step active-step">
+          <div class="bt-icon">🚀</div>
+          <div class="bt-label">Live Trading</div>
+        </div>
+      </div>
+      <div class="warning-box">
+        ⚠️ <strong>Overfitting</strong> : Une stratégie parfaite sur le passé n'est pas forcément bonne sur le futur
+      </div>
+    </div>
+
+    <!-- Risques des bots -->
+    <div class="visual-block reveal">
+      <h3 class="block-title">⚠️ Risques à Connaître</h3>
+      <div class="risks-grid">
+        <div class="risk-item">
+          <div class="risk-emoji">🔌</div>
+          <div class="risk-name">Panne technique</div>
+        </div>
+        <div class="risk-item">
+          <div class="risk-emoji">📉</div>
+          <div class="risk-name">Flash Crash</div>
+        </div>
+        <div class="risk-item">
+          <div class="risk-emoji">🎯</div>
+          <div class="risk-name">Overfitting</div>
+        </div>
+        <div class="risk-item">
+          <div class="risk-emoji">💱</div>
+          <div class="risk-name">Slippage</div>
+        </div>
+        <div class="risk-item">
+          <div class="risk-emoji">🔑</div>
+          <div class="risk-name">Sécurité API</div>
+        </div>
+        <div class="risk-item">
+          <div class="risk-emoji">📊</div>
+          <div class="risk-name">Mauvais paramètres</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quiz Module 7 -->
+    <div class="quiz-block reveal" id="quiz7">
+      <div class="quiz-header">🎯 Quiz — Module 7</div>
+      <div class="quiz-questions" id="q7"></div>
+    </div>
+  </section>
+
+  <!-- ====== MODULE 8 — GLOSSAIRE ====== -->
+  <section id="module8" class="section">
+    <div class="module-header">
+      <div class="module-badge">MODULE 08</div>
+      <h2 class="module-title">📖 Glossaire du Trading</h2>
+    </div>
+
+    <div class="visual-block reveal">
+      <div class="glossary-search">
+        <input type="text" id="gloss-search" placeholder="🔍 Rechercher un terme..." oninput="filterGlossary(this.value)">
+      </div>
+      <div class="glossary-grid" id="glossary-grid"></div>
+    </div>
+  </section>
+
+  <!-- ====== CERTIFICATE ====== -->
+  <section id="certificate" class="section cert-section" style="display:none">
+    <div class="cert-card">
+      <div class="cert-emoji">🏆</div>
+      <div class="cert-title">Félicitations !</div>
+      <div class="cert-text">Tu as complété <strong>TradingAcademy Pro</strong></div>
+      <div class="cert-badge">Expert Certifié</div>
+      <div class="cert-stars">⭐⭐⭐⭐⭐</div>
+      <button class="cta-btn" onclick="goTo('hero')">Recommencer</button>
+    </div>
+  </section>
+
+</main>
+
+<!-- ====== MODAL INDICATEUR ====== -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal()">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<!-- ====== PROGRESS FLOAT ====== -->
+<div class="progress-float" id="progress-float">
+  <div class="pf-bar" id="pf-bar"></div>
+  <span id="pf-pct">0%</span>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
